@@ -1,0 +1,121 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2sc7c3w8tdxb"]
+
+[ext_resource type="Texture2D" uid="uid://d8wiviwjayhd" path="res://demo_scene/icon.svg" id="1_ovq1f"]
+[ext_resource type="Environment" uid="uid://cg2ccuuf31bkr" path="res://demo_scene/demo_environment.tres" id="1_r3oby"]
+[ext_resource type="Script" path="res://demo_scene/oscillator.gd" id="2_vwfmo"]
+[ext_resource type="PackedScene" uid="uid://cn74tfmybnhix" path="res://addons/flowerwall_postprocess/scenes/flowerwall_crt_config_ui.tscn" id="3_x1ct0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6avdl"]
+albedo_color = Color(1, 1, 0, 1)
+metallic = 1.0
+metallic_specular = 0.0
+roughness = 0.0
+emission_enabled = true
+emission = Color(0.976471, 1, 0, 1)
+emission_energy_multiplier = 0.34
+
+[sub_resource type="TorusMesh" id="TorusMesh_p3fn3"]
+material = SubResource("StandardMaterial3D_6avdl")
+inner_radius = 0.201
+outer_radius = 0.298
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o1bwy"]
+albedo_color = Color(0.231373, 0.231373, 0.231373, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pxxb4"]
+material = SubResource("StandardMaterial3D_o1bwy")
+
+[node name="DemoScene" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52883, 0)
+environment = ExtResource("1_r3oby")
+fov = 73.4
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(410, 96)
+texture = ExtResource("1_ovq1f")
+
+[node name="Icon" type="Sprite2D" parent="Icon"]
+position = Vector2(174.5, 45.5)
+scale = Vector2(1.67969, 1.67969)
+texture = ExtResource("1_ovq1f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -3, 0, -3.6124)
+mesh = SubResource("TorusMesh_p3fn3")
+script = ExtResource("2_vwfmo")
+speed = 1.3
+amplitude = 0.1
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -3, 0, -5.6124)
+mesh = SubResource("TorusMesh_p3fn3")
+script = ExtResource("2_vwfmo")
+speed = 1.3
+amplitude = 0.1
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -3, 0, -7.6124)
+mesh = SubResource("TorusMesh_p3fn3")
+script = ExtResource("2_vwfmo")
+speed = 1.3
+amplitude = 0.1
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -3, 0, -9.6124)
+mesh = SubResource("TorusMesh_p3fn3")
+script = ExtResource("2_vwfmo")
+speed = 1.3
+amplitude = 0.1
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -1, 0, -3.6124)
+mesh = SubResource("TorusMesh_p3fn3")
+script = ExtResource("2_vwfmo")
+speed = 1.3
+amplitude = 0.1
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -1, 0, -5.6124)
+mesh = SubResource("TorusMesh_p3fn3")
+script = ExtResource("2_vwfmo")
+speed = 1.3
+amplitude = 0.1
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -1, 0, -7.6124)
+mesh = SubResource("TorusMesh_p3fn3")
+script = ExtResource("2_vwfmo")
+speed = 1.3
+amplitude = 0.1
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -1, 0, -9.6124)
+mesh = SubResource("TorusMesh_p3fn3")
+script = ExtResource("2_vwfmo")
+speed = 1.3
+amplitude = 0.1
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.83914, 0.560562, 1.57484, 0.830671, 2.22047, -2.28792, -1.45063, 2.36862, 1.77211, -12.5841, 3.94044, -17)
+mesh = SubResource("BoxMesh_pxxb4")
+script = ExtResource("2_vwfmo")
+speed = -1.0
+amplitude = 0.75
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.83914, 0.560562, 1.57484, -1.45063, 2.36862, 1.77211, -0.830671, -2.22047, 2.28792, 7.41587, -4.05956, -12)
+mesh = SubResource("BoxMesh_pxxb4")
+script = ExtResource("2_vwfmo")
+speed = -0.2
+amplitude = 0.25
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_r3oby")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FlowerwallCrtConfigUi" parent="CanvasLayer" instance=ExtResource("3_x1ct0")]
+offset_left = 717.0
+offset_bottom = -304.0

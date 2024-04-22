@@ -1,0 +1,124 @@
+[gd_scene load_steps=11 format=3 uid="uid://cc1fomjf362h5"]
+
+[ext_resource type="Script" path="res://addons/flowerwall_postprocess/scripts/flowerwall_pp_script.gd" id="1_sc4md"]
+[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/dithering.gdshader" id="2_e65cv"]
+[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/blur.gdshader" id="3_07kvw"]
+[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/crt.gdshader" id="4_8ls41"]
+[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/bloom.gdshader" id="5_h5wqk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vcmfx"]
+shader = ExtResource("2_e65cv")
+shader_parameter/color_depth = 8
+shader_parameter/dithering = true
+shader_parameter/resolution_scale = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fjm1h"]
+shader = ExtResource("3_07kvw")
+shader_parameter/step = Vector2(0, 1)
+shader_parameter/radius = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ax85r"]
+shader = ExtResource("3_07kvw")
+shader_parameter/step = Vector2(1, 0)
+shader_parameter/radius = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pli6x"]
+shader = ExtResource("4_8ls41")
+shader_parameter/noise_strength = 0.3
+shader_parameter/curve_power = 1.02
+shader_parameter/vignette_size = 6.0
+shader_parameter/vignette_attenuation = 2.0
+shader_parameter/scanlines_interval = 6.0
+shader_parameter/scanline_opacity = 0.4
+shader_parameter/scanline_thickness = 3.0
+shader_parameter/brightness_multiplier = 1.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pilqa"]
+shader = ExtResource("5_h5wqk")
+shader_parameter/BLOOM_THRESHOLD = 0.125
+shader_parameter/BLOOM_INTENSITY = 1.9
+shader_parameter/bloom_blur_iterations = 5
+shader_parameter/bloom_blur_size = 0.0024
+shader_parameter/bloom_blur_subdivisions = 8
+
+[node name="flowerwall_pp" type="Control" node_paths=PackedStringArray("dither", "preblur_x", "preblur_y", "crt", "bloom")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sc4md")
+dither = NodePath("dithering")
+preblur_x = NodePath("preblur_x")
+preblur_y = NodePath("preblur_y")
+crt = NodePath("CRT")
+bloom = NodePath("post_bloom")
+
+[node name="dithering" type="CanvasLayer" parent="."]
+layer = 99
+
+[node name="dither" type="ColorRect" parent="dithering"]
+material = SubResource("ShaderMaterial_vcmfx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="preblur_x" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="x_blur" type="ColorRect" parent="preblur_x"]
+material = SubResource("ShaderMaterial_fjm1h")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="preblur_y" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="y_blur" type="ColorRect" parent="preblur_y"]
+material = SubResource("ShaderMaterial_ax85r")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="CRT" type="CanvasLayer" parent="."]
+layer = 101
+
+[node name="crt_shader" type="ColorRect" parent="CRT"]
+material = SubResource("ShaderMaterial_pli6x")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="post_bloom" type="CanvasLayer" parent="."]
+layer = 102
+
+[node name="bloom" type="ColorRect" parent="post_bloom"]
+material = SubResource("ShaderMaterial_pilqa")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
