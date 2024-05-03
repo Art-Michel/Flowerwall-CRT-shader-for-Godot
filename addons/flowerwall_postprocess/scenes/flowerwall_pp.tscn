@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cc1fomjf362h5"]
+[gd_scene load_steps=13 format=3 uid="uid://cc1fomjf362h5"]
 
 [ext_resource type="Script" path="res://addons/flowerwall_postprocess/scripts/flowerwall_pp_script.gd" id="1_sc4md"]
 [ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/dithering.gdshader" id="2_e65cv"]
@@ -8,9 +8,9 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vcmfx"]
 shader = ExtResource("2_e65cv")
-shader_parameter/color_depth = 8
-shader_parameter/dithering = true
-shader_parameter/resolution_scale = 1
+shader_parameter/color_depth = 3
+shader_parameter/dithering = false
+shader_parameter/resolution_scale = 3
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fjm1h"]
 shader = ExtResource("3_j385i")
@@ -22,16 +22,34 @@ shader = ExtResource("3_j385i")
 shader_parameter/step = Vector2(0, 1)
 shader_parameter/radius = 3.0
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_11qfw"]
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qk5sn"]
+width = 2048
+height = 2048
+noise = SubResource("FastNoiseLite_11qfw")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pli6x"]
 shader = ExtResource("4_8ls41")
-shader_parameter/noise_strength = 0.3
+shader_parameter/enable_grain = true
+shader_parameter/enable_curving = true
+shader_parameter/enable_scanlines = true
+shader_parameter/enable_chromatic_aberration = true
+shader_parameter/enable_rgb_grid = true
+shader_parameter/enable_vhs_wiggle = true
+shader_parameter/enable_vignette = true
+shader_parameter/brightness_multiplier = 1.2
+shader_parameter/grain_strength = 0.3
 shader_parameter/curve_power = 1.02
-shader_parameter/vignette_size = 6.0
-shader_parameter/vignette_attenuation = 2.0
+shader_parameter/vignette_size = 0.4
+shader_parameter/vignette_smoothness = 0.4
 shader_parameter/scanlines_interval = 6.0
 shader_parameter/scanline_opacity = 0.45
 shader_parameter/scanline_thickness = 3.0
-shader_parameter/brightness_multiplier = 1.2
+shader_parameter/chromatic_aberration_strength = 6.0
+shader_parameter/wiggle = 0.005
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_qk5sn")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pilqa"]
 shader = ExtResource("5_h5wqk")
@@ -58,7 +76,7 @@ crt = NodePath("CRT")
 bloom = NodePath("post_bloom")
 
 [node name="dithering" type="CanvasLayer" parent="."]
-layer = 0
+layer = 99
 
 [node name="dither" type="ColorRect" parent="dithering"]
 material = SubResource("ShaderMaterial_vcmfx")
@@ -98,7 +116,7 @@ size_flags_vertical = 4
 mouse_filter = 2
 
 [node name="CRT" type="CanvasLayer" parent="."]
-layer = 101
+layer = 102
 
 [node name="crt_shader" type="ColorRect" parent="CRT"]
 material = SubResource("ShaderMaterial_pli6x")
@@ -110,7 +128,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="post_bloom" type="CanvasLayer" parent="."]
-layer = 102
+layer = 103
 
 [node name="bloom" type="ColorRect" parent="post_bloom"]
 material = SubResource("ShaderMaterial_pilqa")
