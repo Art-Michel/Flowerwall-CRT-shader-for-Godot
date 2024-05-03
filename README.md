@@ -14,3 +14,4 @@ How to use: just enable the plugin, an autoload is then loaded, preconfigured. A
 ![tv](https://github.com/Art-Michel/Flowerwall-CRT-shader-for-Godot/assets/37030911/98c26fc6-a2df-4b0d-830b-716b0bd1529a)
 ![monitor](https://github.com/Art-Michel/Flowerwall-CRT-shader-for-Godot/assets/37030911/33feaba9-6d51-4950-9d7d-5d3c07f50d6b)
 ![VHS](https://github.com/Art-Michel/Flowerwall-CRT-shader-for-Godot/assets/37030911/97ae6606-1198-4dc3-98e1-488d4d14c9c2)
+![jIyOqOitrd](https://github.com/Art-Michel/Flowerwall-CRT-shader-for-Godot/assets/37030911/1735399a-e619-4f5a-890f-d72f57ce841b)
