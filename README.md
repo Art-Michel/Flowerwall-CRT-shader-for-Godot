@@ -5,6 +5,8 @@ Aims to emulate a grid mask among other things, works at any resolution but the 
 The demo project comes with a small configuration UI scene if you want to play around with some parameters.
 If you change noise and scanlines, consider adjusting brightness and/or bloom intensity so it still looks natural.
 
+How to use: just enable the plugin, an autoload is then loaded, preconfigured. Alternatively disable the autoload and just throw scenes/flowerwall_pp.tscn anywhere
+
 ![2LNUKW9BcV](https://github.com/Art-Michel/Flowerwall-CRT-shader-for-Godot/assets/37030911/4eb0a3c4-0987-47e5-bdb5-e5e7dd89ce18)
 ![NWnM0BcuLd](https://github.com/Art-Michel/Flowerwall-CRT-shader-for-Godot/assets/37030911/593563bc-2e7d-462f-ad12-fd846bcab83a)
 ![gAeRR80OFK](https://github.com/Art-Michel/Flowerwall-CRT-shader-for-Godot/assets/37030911/041452d6-afc1-4e2f-98ad-9d4ee06a08cc)
