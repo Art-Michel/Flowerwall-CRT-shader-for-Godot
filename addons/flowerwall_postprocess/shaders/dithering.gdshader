@@ -3,9 +3,9 @@ shader_type canvas_item;
 //Shader courtesy of sagokoliknet!!
 
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
-uniform int color_depth : hint_range(1, 8) = 5;
-uniform bool dithering = true;
-uniform int resolution_scale:hint_range(1, 8, 1) = 4;
+uniform int color_depth : hint_range(1, 8) = 8;
+uniform bool dithering = false;
+uniform int resolution_scale:hint_range(1, 8, 1) = 1;
 
 int dithering_pattern(ivec2 fragcoord) {
     const int pattern[] = {

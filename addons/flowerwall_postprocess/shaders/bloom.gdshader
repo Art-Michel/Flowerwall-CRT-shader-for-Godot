@@ -1,8 +1,8 @@
 shader_type canvas_item;
 
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
-uniform float bloom_threshold:hint_range(0.0, 1.0, 0.01) = 0.12;
-uniform float bloom_intensity:hint_range(0.0, 3.0, 0.01) = 1.90;
+uniform float bloom_threshold:hint_range(0.0, 1.0, 0.01) = 0.14;
+uniform float bloom_intensity:hint_range(0.0, 3.0, 0.01) = 2.20;
 
 uniform int bloom_blur_iterations: hint_range(1, 10, 1.0) = 5;
 uniform float bloom_blur_size: hint_range(0, 0.01 , 0.001) = 0.002;

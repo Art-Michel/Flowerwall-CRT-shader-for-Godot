@@ -117,5 +117,7 @@ environment = ExtResource("1_r3oby")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="FlowerwallCrtConfigUi" parent="CanvasLayer" instance=ExtResource("3_x1ct0")]
-offset_left = 717.0
-offset_bottom = -304.0
+offset_left = -127.0
+offset_top = 678.0
+offset_right = -127.0
+offset_bottom = 678.0

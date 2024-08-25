@@ -2,16 +2,16 @@ shader_type canvas_item;
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
 
 uniform bool enable_grain = true;
-uniform bool enable_curving = true;
+uniform bool enable_curving = false;
 uniform bool enable_scanlines = true;
 uniform bool enable_chromatic_aberration = true;
 uniform bool enable_rgb_grid = true;
 uniform bool enable_vhs_wiggle = true;
-uniform bool enable_vignette = true;
-uniform float brightness_multiplier:hint_range(0.7,2.0, 0.01) = 1.2;
+uniform bool enable_vignette = false;
+uniform float brightness_multiplier:hint_range(0.7,2.0, 0.01) = 1.05;
 
 group_uniforms grain_settings;
-uniform float grain_strength: hint_range(0.0, 1.0, 0.05) = 0.3;
+uniform float grain_strength: hint_range(0.0, 1.0, 0.05) = 0.25;
 
 group_uniforms curving_settings;
 uniform float curve_power: hint_range(1.0, 1.05, 0.005) =1.02;
@@ -26,12 +26,12 @@ uniform float scanline_opacity: hint_range(0, 1, 0.05) = 0.45;
 uniform float scanline_thickness: hint_range(0, 10, 1.0) = 3;
 
 group_uniforms chromatic_aberration_settings;
-uniform float chromatic_aberration_strength: hint_range(0.0, 10.0, 1.0) = 6.0;
+uniform float chromatic_aberration_strength: hint_range(0.0, 10.0, 1.0) = 1.0;
 
 
 group_uniforms vhs_wiggle_settings;
 uniform sampler2D noise_texture: filter_linear_mipmap, repeat_enable;
-uniform float wiggle:hint_range(0.0, 0.05, 0.001) = 0.001;
+uniform float wiggle:hint_range(0.0, 0.05, 0.001) = 0.002;
 
 vec2 distort(vec2 p) 
 {
