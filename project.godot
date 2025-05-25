@@ -12,7 +12,9 @@ config_version=5
 
 config/name="Flowerwall_Shader_demo"
 run/main_scene="res://demo_scene/demo_scene.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/use_filter=false
+boot_splash/image="uid://c6q0bu8majs67"
 config/icon="res://demo_scene/icon.svg"
 
 [autoload]
@@ -23,7 +25,12 @@ flowerwall_pp_autoload="*res://addons/flowerwall_postprocess/scenes/flowerwall_p
 
 window/size/viewport_width=1440
 window/size/viewport_height=810
+window/size/mode=2
 window/stretch/mode="canvas_items"
+
+[editor]
+
+movie_writer/movie_file="D:/Godot/Godot Projects/Flowerwall-CRT-shader-for-Godot/movie.avi"
 
 [editor_plugins]
 

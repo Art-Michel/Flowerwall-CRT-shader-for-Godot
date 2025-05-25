@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba2qrib4ijl0l"]
+
+[ext_resource type="PackedScene" uid="uid://dj7lj4bkp14f" path="res://demo_scene/gltf_broce/Brocelome.glb" id="1_3nvmr"]
+[ext_resource type="Script" uid="uid://2ywamljt5fyc" path="res://demo_scene/gltf_broce/brocelome.gd" id="2_bi4c4"]
+
+[node name="Brocelome" instance=ExtResource("1_3nvmr")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("2_bi4c4")
+speed = 2.0
+amplitude = 0.1
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/2/rotation = Quaternion(0.0225778, 0.0227029, -0.214819, 0.976129)
+bones/3/rotation = Quaternion(0.0186221, 0.0187251, -0.177182, 0.983824)
+bones/4/rotation = Quaternion(0.0214068, 0.015436, -0.121162, 0.992282)
+bones/5/rotation = Quaternion(0.00185416, -0.00378603, 0.0977574, 0.995201)
+bones/6/rotation = Quaternion(-0.0506916, -0.0735371, 0.841698, 0.532511)
+bones/7/rotation = Quaternion(-0.029073, 0.331448, 0.94297, 0.0102191)
+bones/8/rotation = Quaternion(0.327738, 0.0413597, -0.0659962, 0.941553)
+bones/9/rotation = Quaternion(0.0686241, 0.0153062, -0.0974236, 0.992756)
+bones/10/rotation = Quaternion(0.0540141, 0.00934899, -0.312209, 0.948431)
+bones/11/rotation = Quaternion(0.0724258, -0.0257928, -0.252249, 0.964603)
+bones/12/rotation = Quaternion(-0.0506916, 0.0735371, -0.841698, 0.532511)
+
+[node name="Body_001" parent="Armature/Skeleton3D" index="0"]
+cast_shadow = 0
+
+[node name="AnimationPlayer" parent="." index="1"]
+speed_scale = 0.205

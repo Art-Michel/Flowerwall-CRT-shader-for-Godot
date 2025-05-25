@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bxyrec32g2rbf"]
+
+[ext_resource type="Texture2D" uid="uid://b4e658lnu1ren" path="res://demo_scene/gltf_broce/Brocelome_Broce.png" id="1_srlwe"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_texture = ExtResource("1_srlwe")
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 0.43
+texture_filter = 0

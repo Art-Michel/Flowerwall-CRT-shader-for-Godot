@@ -1,16 +1,16 @@
 [gd_scene load_steps=13 format=3 uid="uid://cc1fomjf362h5"]
 
-[ext_resource type="Script" path="res://addons/flowerwall_postprocess/scripts/flowerwall_pp_script.gd" id="1_sc4md"]
-[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/dithering.gdshader" id="2_e65cv"]
-[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/blur.gdshader" id="3_j385i"]
-[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/crt.gdshader" id="4_8ls41"]
-[ext_resource type="Shader" path="res://addons/flowerwall_postprocess/shaders/bloom.gdshader" id="5_h5wqk"]
+[ext_resource type="Script" uid="uid://bntltnoxbgnkr" path="res://addons/flowerwall_postprocess/scripts/flowerwall_pp_script.gd" id="1_sc4md"]
+[ext_resource type="Shader" uid="uid://msjwbdc7aand" path="res://addons/flowerwall_postprocess/shaders/dithering.gdshader" id="2_e65cv"]
+[ext_resource type="Shader" uid="uid://dp8yhjaag8c7s" path="res://addons/flowerwall_postprocess/shaders/blur.gdshader" id="3_j385i"]
+[ext_resource type="Shader" uid="uid://bcyuy70m7xv4c" path="res://addons/flowerwall_postprocess/shaders/crt.gdshader" id="4_8ls41"]
+[ext_resource type="Shader" uid="uid://7jorjcj4ld6m" path="res://addons/flowerwall_postprocess/shaders/bloom.gdshader" id="5_h5wqk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vcmfx"]
 shader = ExtResource("2_e65cv")
 shader_parameter/color_depth = 8
 shader_parameter/dithering = false
-shader_parameter/resolution_scale = 1
+shader_parameter/resolution_scale = 4
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fjm1h"]
 shader = ExtResource("3_j385i")
@@ -36,25 +36,25 @@ shader_parameter/enable_grain = true
 shader_parameter/enable_curving = false
 shader_parameter/enable_scanlines = true
 shader_parameter/enable_chromatic_aberration = true
-shader_parameter/enable_rgb_grid = true
+shader_parameter/enable_rgb_grid = false
 shader_parameter/enable_vhs_wiggle = true
 shader_parameter/enable_vignette = false
 shader_parameter/brightness_multiplier = 1.05
-shader_parameter/grain_strength = 0.25
+shader_parameter/grain_strength = 0.2
 shader_parameter/curve_power = 1.02
 shader_parameter/vignette_size = 0.4
 shader_parameter/vignette_smoothness = 0.4
 shader_parameter/scanlines_interval = 6.0
-shader_parameter/scanline_opacity = 0.45
+shader_parameter/scanline_opacity = 0.2
 shader_parameter/scanline_thickness = 3.0
-shader_parameter/chromatic_aberration_strength = 1.0
-shader_parameter/wiggle = 0.002
+shader_parameter/chromatic_aberration_strength = 2.0
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_qk5sn")
+shader_parameter/wiggle = 0.002
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pilqa"]
 shader = ExtResource("5_h5wqk")
 shader_parameter/bloom_threshold = 0.14
-shader_parameter/bloom_intensity = 2.2
+shader_parameter/bloom_intensity = 0.5
 shader_parameter/bloom_blur_iterations = 5
 shader_parameter/bloom_blur_size = 0.002
 shader_parameter/bloom_blur_subdivisions = 8
@@ -91,6 +91,7 @@ mouse_filter = 2
 layer = 100
 
 [node name="x_blur" type="ColorRect" parent="preblur_x"]
+visible = false
 material = SubResource("ShaderMaterial_fjm1h")
 anchors_preset = 15
 anchor_right = 1.0
@@ -105,6 +106,7 @@ mouse_filter = 2
 layer = 100
 
 [node name="y_blur" type="ColorRect" parent="preblur_y"]
+visible = false
 material = SubResource("ShaderMaterial_ax85r")
 anchors_preset = 15
 anchor_right = 1.0
