@@ -1,29 +1,29 @@
-[gd_scene load_steps=27 format=3 uid="uid://cn74tfmybnhix"]
+[gd_scene load_steps=27 format=3 uid="uid://d3trgwqlbx3p5"]
 
-[ext_resource type="Script" uid="uid://cwut22edjne7u" path="res://addons/flowerwall_postprocess/scenes/scanlines_slider.gd" id="2_7o34y"]
-[ext_resource type="Script" uid="uid://b6rysq5qkqaij" path="res://addons/flowerwall_postprocess/scenes/brightness_slider.gd" id="2_w8bx6"]
-[ext_resource type="Script" uid="uid://c34em7brsd40f" path="res://addons/flowerwall_postprocess/scenes/dithering_toggle.gd" id="2_yswg4"]
-[ext_resource type="Script" uid="uid://bpwyw3224swq7" path="res://addons/flowerwall_postprocess/scenes/curvature_slider.gd" id="3_e705y"]
-[ext_resource type="Script" uid="uid://bbwmqyf5v00xg" path="res://addons/flowerwall_postprocess/scenes/crt_toggle.gd" id="3_hpsg7"]
-[ext_resource type="Script" uid="uid://o7mjdv3p0jf4" path="res://addons/flowerwall_postprocess/scenes/color_depth_slider.gd" id="4_frdke"]
-[ext_resource type="Script" uid="uid://bt3lwcgeul7uw" path="res://addons/flowerwall_postprocess/scenes/preblur_toggle.gd" id="5_0gm0m"]
-[ext_resource type="Script" uid="uid://6anog4ulbp2l" path="res://addons/flowerwall_postprocess/scenes/downscale_slider.gd" id="5_4xhw2"]
-[ext_resource type="Script" uid="uid://cd8v25x6o7fbt" path="res://addons/flowerwall_postprocess/scenes/grain_toggle.gd" id="5_v5nl2"]
-[ext_resource type="Script" uid="uid://bl4sinn62uyli" path="res://addons/flowerwall_postprocess/scenes/scanlines_toggle.gd" id="6_2d0vw"]
-[ext_resource type="Script" uid="uid://bukfsspmj7u2k" path="res://addons/flowerwall_postprocess/scenes/noise_slider.gd" id="6_gyjwn"]
-[ext_resource type="Script" uid="uid://dc03aeob7abxc" path="res://addons/flowerwall_postprocess/scenes/blur_slider.gd" id="6_t67q8"]
-[ext_resource type="Script" uid="uid://cdc088wv5ycix" path="res://addons/flowerwall_postprocess/scenes/curving_toggle.gd" id="7_23pnb"]
-[ext_resource type="Script" uid="uid://cmi6jx5l1x302" path="res://addons/flowerwall_postprocess/scenes/vignette_toggle.gd" id="8_d5de4"]
-[ext_resource type="Script" uid="uid://c5yiqqk25qjuc" path="res://addons/flowerwall_postprocess/scenes/vignette_size_slider.gd" id="8_tlj3q"]
-[ext_resource type="Script" uid="uid://lqo0cedyhfk4" path="res://addons/flowerwall_postprocess/scenes/presets.gd" id="9_4i7tj"]
-[ext_resource type="Script" uid="uid://cos4s55qwb6d0" path="res://addons/flowerwall_postprocess/scenes/bloom_threshold_slider.gd" id="9_o2frr"]
-[ext_resource type="Script" uid="uid://rbm0pb0xtl1j" path="res://addons/flowerwall_postprocess/scenes/vignette_smoothness_slider.gd" id="9_tuipt"]
-[ext_resource type="Script" uid="uid://bh7jycifmy5xn" path="res://addons/flowerwall_postprocess/scenes/VHS_wiggle_strength_slider.gd" id="10_fgp3q"]
-[ext_resource type="Script" uid="uid://ck5fkegwjotms" path="res://addons/flowerwall_postprocess/scenes/VHS_wiggle_toggle.gd" id="10_hk3fq"]
-[ext_resource type="Script" uid="uid://cj6n2wq18bwba" path="res://addons/flowerwall_postprocess/scenes/bloom_intensity_slider.gd" id="10_viuso"]
-[ext_resource type="Script" uid="uid://cmu1yrbeb8etu" path="res://addons/flowerwall_postprocess/scenes/chroma_aberr_strength_slider.gd" id="11_aiea4"]
-[ext_resource type="Script" uid="uid://b8e5fad1oit78" path="res://addons/flowerwall_postprocess/scenes/chroma_aberr_toggle.gd" id="11_q4563"]
-[ext_resource type="Script" uid="uid://dtc24pf7y71gx" path="res://addons/flowerwall_postprocess/scenes/bloom_toggle.gd" id="14_o3nx5"]
+[ext_resource type="Script" uid="uid://vrb52mwpdb4d" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/scanlines_slider.gd" id="2_7o34y"]
+[ext_resource type="Script" uid="uid://fd24ba8layl3" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/brightness_slider.gd" id="2_w8bx6"]
+[ext_resource type="Script" uid="uid://dbcu21o1rc7q0" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/dithering_toggle.gd" id="2_yswg4"]
+[ext_resource type="Script" uid="uid://bden10dd77jb" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/curvature_slider.gd" id="3_e705y"]
+[ext_resource type="Script" uid="uid://c4rb22qbb0l3u" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/crt_toggle.gd" id="3_hpsg7"]
+[ext_resource type="Script" uid="uid://cbdcik44uwo40" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/color_depth_slider.gd" id="4_frdke"]
+[ext_resource type="Script" uid="uid://7ucq5wqvi1ts" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/preblur_toggle.gd" id="5_0gm0m"]
+[ext_resource type="Script" uid="uid://c54vqovj8lsmc" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/downscale_slider.gd" id="5_4xhw2"]
+[ext_resource type="Script" uid="uid://cd6jftxo3ci3" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/grain_toggle.gd" id="5_v5nl2"]
+[ext_resource type="Script" uid="uid://d3d1ioicod0qq" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/scanlines_toggle.gd" id="6_2d0vw"]
+[ext_resource type="Script" uid="uid://dhqyemhwsvp6t" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/noise_slider.gd" id="6_gyjwn"]
+[ext_resource type="Script" uid="uid://blyypi7v26m6c" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/blur_slider.gd" id="6_t67q8"]
+[ext_resource type="Script" uid="uid://cq5rrhae2da18" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/curving_toggle.gd" id="7_23pnb"]
+[ext_resource type="Script" uid="uid://d38wncxqh27hn" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/vignette_toggle.gd" id="8_d5de4"]
+[ext_resource type="Script" uid="uid://bfycoa4d271ka" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/vignette_size_slider.gd" id="8_tlj3q"]
+[ext_resource type="Script" uid="uid://dxlwhj47enyqa" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/presets.gd" id="9_4i7tj"]
+[ext_resource type="Script" uid="uid://cn0v6kdom4f8j" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/bloom_threshold_slider.gd" id="9_o2frr"]
+[ext_resource type="Script" uid="uid://cxxwe0upgx226" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/vignette_smoothness_slider.gd" id="9_tuipt"]
+[ext_resource type="Script" uid="uid://cn7nid7ofkorm" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/VHS_wiggle_strength_slider.gd" id="10_fgp3q"]
+[ext_resource type="Script" uid="uid://dwgfbnmm3ibg1" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/VHS_wiggle_toggle.gd" id="10_hk3fq"]
+[ext_resource type="Script" uid="uid://dqgk4klfn3c32" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/bloom_intensity_slider.gd" id="10_viuso"]
+[ext_resource type="Script" uid="uid://coglvmcm8ek3o" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/chroma_aberr_strength_slider.gd" id="11_aiea4"]
+[ext_resource type="Script" uid="uid://cyqrwsw50oidn" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/chroma_aberr_toggle.gd" id="11_q4563"]
+[ext_resource type="Script" uid="uid://bqf3br70dttsd" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/bloom_toggle.gd" id="14_o3nx5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_my6d0"]
 font_size = 32
@@ -32,12 +32,9 @@ font_size = 32
 font_size = 17
 
 [node name="FlowerwallCrtConfigUi" type="ColorRect"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -576.0
-offset_bottom = 755.0
-grow_horizontal = 0
+offset_right = 547.0
+offset_bottom = 648.0
+size_flags_horizontal = 4
 color = Color(0.121569, 0.121569, 0.121569, 0.721569)
 
 [node name="Presets" type="OptionButton" parent="." node_paths=PackedStringArray("dither", "color_depth", "downscale", "preblur", "preblur_sl", "grain", "grain_sl", "scanlines", "scanlines_sl", "curve", "curve_sl", "vignette", "vignette_size_sl", "vignette_smoothness_sl", "wiggle", "wiggle_sl", "chromaberr", "chromaberr_sl", "rgb_grid", "brightness", "bloom", "bloom_t", "bloom_i")]
@@ -45,10 +42,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -75.5
-offset_top = 55.0
-offset_right = 75.5
-offset_bottom = 86.0
+offset_left = 355.5
+offset_top = 41.0
+offset_right = 506.5
+offset_bottom = 72.0
 grow_horizontal = 2
 item_count = 5
 popup/item_0/text = "Sharp"
@@ -62,29 +59,29 @@ popup/item_3/id = 3
 popup/item_4/text = "VHS Tape"
 popup/item_4/id = 4
 script = ExtResource("9_4i7tj")
-dither = NodePath("../Buttons/dithering_toggle")
-color_depth = NodePath("../Buttons/color_depth_slider")
-downscale = NodePath("../Buttons/downscale_slider")
-preblur = NodePath("../Buttons/preblur_toggle")
-preblur_sl = NodePath("../Buttons/blur_slider")
-grain = NodePath("../Buttons/grain_toggle")
-grain_sl = NodePath("../Buttons/grain_slider")
-scanlines = NodePath("../Buttons/scanlines_toggle")
-scanlines_sl = NodePath("../Buttons/scanlines_opacity_slider")
-curve = NodePath("../Buttons/curving_toggle")
-curve_sl = NodePath("../Buttons/curvature_slider")
-vignette = NodePath("../Buttons/vignette_toggle")
-vignette_size_sl = NodePath("../Buttons/vignette_size_slider")
-vignette_smoothness_sl = NodePath("../Buttons/vignette_smoothness_slider")
-wiggle = NodePath("../Buttons/VHS_wiggle_toggle")
-wiggle_sl = NodePath("../Buttons/VHS_wiggle_strength_slider")
-chromaberr = NodePath("../Buttons/chroma_aberr_toggle")
-chromaberr_sl = NodePath("../Buttons/chroma_aberr_strength_slider")
-rgb_grid = NodePath("../Buttons/RGB_grid_toggle")
-brightness = NodePath("../Buttons/brightness_modifier_slider")
-bloom = NodePath("../Buttons/bloom_toggle")
-bloom_t = NodePath("../Buttons/bloom_threshold_slider")
-bloom_i = NodePath("../Buttons/bloom_intensity_slider")
+dither = NodePath("../Better VBOX/Enable Dithering/dithering_toggle")
+color_depth = NodePath("../Better VBOX/Color Depth/color_depth_slider")
+downscale = NodePath("../Better VBOX/Downscaling/downscale_slider")
+preblur = NodePath("../Better VBOX/Enable Pre-Blur/preblur_toggle")
+preblur_sl = NodePath("../Better VBOX/Pre-Blur Strength/blur_slider")
+grain = NodePath("../Better VBOX/Enable Grain/grain_toggle")
+grain_sl = NodePath("../Better VBOX/Grain Strength/grain_slider")
+scanlines = NodePath("../Better VBOX/Enable Scanlines/scanlines_toggle")
+scanlines_sl = NodePath("../Better VBOX/Scalines Opacity/scanlines_opacity_slider")
+curve = NodePath("../Better VBOX/Enable Curving/curving_toggle")
+curve_sl = NodePath("../Better VBOX/Curvature Slider/curvature_slider")
+vignette = NodePath("../Better VBOX/Enable Vignette/vignette_toggle")
+vignette_size_sl = NodePath("../Better VBOX/Vignette Size/vignette_size_slider")
+vignette_smoothness_sl = NodePath("../Better VBOX/Vignette Smoothness/vignette_smoothness_slider")
+wiggle = NodePath("../Better VBOX/Enable VHS Wiggle/VHS_wiggle_toggle")
+wiggle_sl = NodePath("../Better VBOX/VHS Wiggle Strength/VHS_wiggle_strength_slider")
+chromaberr = NodePath("../Better VBOX/Enable Chromatic Aberration/chroma_aberr_toggle")
+chromaberr_sl = NodePath("../Better VBOX/Chromatic Aberration Strength/chroma_aberr_strength_slider")
+rgb_grid = NodePath("../Better VBOX/Enable CRT Grid/RGB_grid_toggle")
+brightness = NodePath("../Better VBOX/Brightness/brightness_modifier_slider")
+bloom = NodePath("../Better VBOX/Bloom Enable/bloom_toggle")
+bloom_t = NodePath("../Better VBOX/Bloom Threshold/bloom_threshold_slider")
+bloom_i = NodePath("../Better VBOX/Bloom Intensity/bloom_intensity_slider")
 
 [node name="Preset" type="Label" parent="Presets"]
 layout_mode = 1
@@ -99,510 +96,587 @@ text = "Preset"
 label_settings = SubResource("LabelSettings_my6d0")
 horizontal_alignment = 1
 
-[node name="Labels" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -244.0
-offset_top = -645.0
-offset_right = -5.0
-offset_bottom = -5.0
-grow_horizontal = 0
-grow_vertical = 0
+[node name="Better VBOX" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 546.0
+offset_bottom = 1081.0
 
-[node name="Enable Dithering" type="Label" parent="Labels"]
+[node name="Downscaling" type="HBoxContainer" parent="Better VBOX"]
 layout_mode = 2
-text = "Enable Dithering"
-label_settings = SubResource("LabelSettings_4uar2")
 
-[node name="Color Depth" type="Label" parent="Labels"]
+[node name="Downscaling" type="Label" parent="Better VBOX/Downscaling"]
 layout_mode = 2
-text = "Color Depth"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Downscaling" type="Label" parent="Labels"]
-layout_mode = 2
+size_flags_horizontal = 3
 text = "Downscaling"
 label_settings = SubResource("LabelSettings_4uar2")
 
-[node name="Enable Pre-Blur" type="Label" parent="Labels"]
-layout_mode = 2
-text = "Enable Pre-Blur"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Pre-Blur Strength" type="Label" parent="Labels"]
-layout_mode = 2
-text = "Pre-Blur Strength"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Enable Grain" type="Label" parent="Labels"]
-layout_mode = 2
-text = "Enable Grain"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Grain Strength" type="Label" parent="Labels"]
-layout_mode = 2
-text = "Grain Strength"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Enable Scanlines" type="Label" parent="Labels"]
-layout_mode = 2
-text = "Enable Scanlines"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Scanlines Opacity" type="Label" parent="Labels"]
-layout_mode = 2
-text = "Scanlines Opacity"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Enable Curving" type="Label" parent="Labels"]
-layout_mode = 2
-text = "Enable Curving"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Curving Strength" type="Label" parent="Labels"]
-layout_mode = 2
-text = "Curving Strength"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Enable Vignette" type="Label" parent="Labels"]
-layout_mode = 2
-text = "Enable Vignette"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Vignette Size" type="Label" parent="Labels"]
-layout_mode = 2
-text = "Vignette Size"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Vignette smoothness" type="Label" parent="Labels"]
-layout_mode = 2
-text = "Vignette smoothness"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Enable VHS Wiggle" type="Label" parent="Labels"]
-layout_mode = 2
-text = "Enable VHS Wiggle"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="VHS Wiggle Strength" type="Label" parent="Labels"]
-layout_mode = 2
-text = "VHS Wiggle Strength"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Enable Chromatic Aberration" type="Label" parent="Labels"]
-layout_mode = 2
-text = "Enable Chromatic Aberration"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Chrom_ Aberration Strength" type="Label" parent="Labels"]
-layout_mode = 2
-text = "Chrom. Aberration Strength"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Enable RGB Grid" type="Label" parent="Labels"]
-layout_mode = 2
-text = "Enable RGB Grid"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Brightness" type="Label" parent="Labels"]
-layout_mode = 2
-text = "Brightness"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Enable Post-Bloom" type="Label" parent="Labels"]
-layout_mode = 2
-text = "Enable Post-Bloom"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Bloom Threshold" type="Label" parent="Labels"]
-layout_mode = 2
-text = "Bloom Threshold"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Bloom Intensity" type="Label" parent="Labels"]
-layout_mode = 2
-text = "Bloom Intensity"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="Buttons" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -511.0
-offset_top = -645.0
-offset_right = -252.0
-offset_bottom = -5.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="dithering_toggle" type="CheckButton" parent="Buttons" node_paths=PackedStringArray("mytext")]
-layout_mode = 2
-action_mode = 0
-alignment = 2
-script = ExtResource("2_yswg4")
-mytext = NodePath("../../Number/Enable Dithering Number")
-
-[node name="color_depth_slider" type="HSlider" parent="Buttons" node_paths=PackedStringArray("mytext")]
+[node name="downscale_slider" type="HSlider" parent="Better VBOX/Downscaling" node_paths=PackedStringArray("mytext")]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-size_flags_vertical = 3
-min_value = 1.0
-max_value = 8.0
-value = 8.0
-script = ExtResource("4_frdke")
-mytext = NodePath("../../Number/Color Depth Number")
-
-[node name="downscale_slider" type="HSlider" parent="Buttons" node_paths=PackedStringArray("mytext")]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 3
+size_flags_vertical = 4
 min_value = 1.0
 max_value = 32.0
 value = 1.0
 script = ExtResource("5_4xhw2")
-mytext = NodePath("../../Number/Downscaling Number")
+mytext = NodePath("../Downscaling Number")
 
-[node name="preblur_toggle" type="CheckButton" parent="Buttons" node_paths=PackedStringArray("mytext")]
+[node name="Downscaling Number" type="Label" parent="Better VBOX/Downscaling"]
 layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
+
+[node name="Enable Dithering" type="HBoxContainer" parent="Better VBOX"]
+layout_mode = 2
+
+[node name="Enable Dithering" type="Label" parent="Better VBOX/Enable Dithering"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Enable Dithering"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="dithering_toggle" type="CheckButton" parent="Better VBOX/Enable Dithering" node_paths=PackedStringArray("mytext")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+action_mode = 0
+alignment = 2
+script = ExtResource("2_yswg4")
+mytext = NodePath("../Enable Dithering Number")
+
+[node name="Enable Dithering Number" type="Label" parent="Better VBOX/Enable Dithering"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
+
+[node name="Color Depth" type="HBoxContainer" parent="Better VBOX"]
+layout_mode = 2
+
+[node name="Color Depth" type="Label" parent="Better VBOX/Color Depth"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Color Depth"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="color_depth_slider" type="HSlider" parent="Better VBOX/Color Depth" node_paths=PackedStringArray("mytext")]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 1.0
+max_value = 8.0
+value = 8.0
+script = ExtResource("4_frdke")
+mytext = NodePath("../Color Depth Number")
+
+[node name="Color Depth Number" type="Label" parent="Better VBOX/Color Depth"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
+
+[node name="Enable Pre-Blur" type="HBoxContainer" parent="Better VBOX"]
+layout_mode = 2
+
+[node name="Enable Pre-Blur" type="Label" parent="Better VBOX/Enable Pre-Blur"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Enable Pre-Blur"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="preblur_toggle" type="CheckButton" parent="Better VBOX/Enable Pre-Blur" node_paths=PackedStringArray("mytext")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 action_mode = 0
 alignment = 2
 script = ExtResource("5_0gm0m")
-mytext = NodePath("../../Number/Enable Pre-Blur Number")
+mytext = NodePath("../Enable Pre-Blur Number")
 
-[node name="blur_slider" type="HSlider" parent="Buttons" node_paths=PackedStringArray("mytext")]
+[node name="Enable Pre-Blur Number" type="Label" parent="Better VBOX/Enable Pre-Blur"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
+
+[node name="Pre-Blur Strength" type="HBoxContainer" parent="Better VBOX"]
+layout_mode = 2
+
+[node name="Pre-Blur Strength" type="Label" parent="Better VBOX/Pre-Blur Strength"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pre-Blur Strength"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="blur_slider" type="HSlider" parent="Better VBOX/Pre-Blur Strength" node_paths=PackedStringArray("mytext")]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 3
+size_flags_vertical = 4
 max_value = 9.0
 value = 6.0
 script = ExtResource("6_t67q8")
-mytext = NodePath("../../Number/Pre-Blur Strength Number")
+mytext = NodePath("../Pre-Blur Strength Number")
 
-[node name="grain_toggle" type="CheckButton" parent="Buttons" node_paths=PackedStringArray("mytext")]
+[node name="Pre-Blur Strength Number" type="Label" parent="Better VBOX/Pre-Blur Strength"]
 layout_mode = 2
-action_mode = 0
-alignment = 2
-script = ExtResource("5_v5nl2")
-mytext = NodePath("../../Number/Enable Grain Number")
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
 
-[node name="grain_slider" type="HSlider" parent="Buttons" node_paths=PackedStringArray("mytext")]
+[node name="Brightness" type="HBoxContainer" parent="Better VBOX"]
+layout_mode = 2
+
+[node name="Brightness" type="Label" parent="Better VBOX/Brightness"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Brightness"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="brightness_modifier_slider" type="HSlider" parent="Better VBOX/Brightness" node_paths=PackedStringArray("mytext")]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-size_flags_vertical = 3
-max_value = 1.0
-step = 0.05
-value = 0.3
-script = ExtResource("6_gyjwn")
-mytext = NodePath("../../Number/Grain Strength Number")
-
-[node name="scanlines_toggle" type="CheckButton" parent="Buttons" node_paths=PackedStringArray("mytext")]
-layout_mode = 2
-action_mode = 0
-alignment = 2
-script = ExtResource("6_2d0vw")
-mytext = NodePath("../../Number/Enable Scanlines Number")
-
-[node name="scanlines_opacity_slider" type="HSlider" parent="Buttons" node_paths=PackedStringArray("mytext")]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-size_flags_vertical = 3
-max_value = 1.0
-step = 0.05
-value = 0.45
-script = ExtResource("2_7o34y")
-mytext = NodePath("../../Number/Scanlines Opacity Number")
-
-[node name="curving_toggle" type="CheckButton" parent="Buttons" node_paths=PackedStringArray("mytext")]
-layout_mode = 2
-action_mode = 0
-alignment = 2
-script = ExtResource("7_23pnb")
-mytext = NodePath("../../Number/Enable Curving Number")
-
-[node name="curvature_slider" type="HSlider" parent="Buttons" node_paths=PackedStringArray("mytext")]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-size_flags_vertical = 3
-min_value = 1.0
-max_value = 1.05
-step = 0.005
-value = 1.02
-script = ExtResource("3_e705y")
-mytext = NodePath("../../Number/Curving Strength Number")
-
-[node name="vignette_toggle" type="CheckButton" parent="Buttons" node_paths=PackedStringArray("mytext")]
-layout_mode = 2
-action_mode = 0
-alignment = 2
-script = ExtResource("8_d5de4")
-mytext = NodePath("../../Number/Enable Vignette Number")
-
-[node name="vignette_size_slider" type="HSlider" parent="Buttons" node_paths=PackedStringArray("mytext")]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-size_flags_vertical = 3
-min_value = 0.1
-max_value = 10.0
-step = 0.1
-value = 0.4
-script = ExtResource("8_tlj3q")
-mytext = NodePath("../../Number/Vignette Size Number")
-
-[node name="vignette_smoothness_slider" type="HSlider" parent="Buttons" node_paths=PackedStringArray("mytext")]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-size_flags_vertical = 3
-min_value = 0.05
-max_value = 5.0
-step = 0.05
-value = 0.4
-script = ExtResource("9_tuipt")
-mytext = NodePath("../../Number/Vignette smoothness Number")
-
-[node name="VHS_wiggle_toggle" type="CheckButton" parent="Buttons" node_paths=PackedStringArray("mytext")]
-layout_mode = 2
-action_mode = 0
-alignment = 2
-script = ExtResource("10_hk3fq")
-mytext = NodePath("../../Number/Enable VHS Wiggle Number")
-
-[node name="VHS_wiggle_strength_slider" type="HSlider" parent="Buttons" node_paths=PackedStringArray("mytext")]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-size_flags_vertical = 3
-max_value = 0.5
-step = 0.001
-value = 0.01
-script = ExtResource("10_fgp3q")
-mytext = NodePath("../../Number/VHS Wiggle Strength Number")
-
-[node name="chroma_aberr_toggle" type="CheckButton" parent="Buttons" node_paths=PackedStringArray("mytext")]
-layout_mode = 2
-action_mode = 0
-alignment = 2
-script = ExtResource("11_q4563")
-mytext = NodePath("../../Number/Enable Chromatic Aberration Number")
-
-[node name="chroma_aberr_strength_slider" type="HSlider" parent="Buttons" node_paths=PackedStringArray("mytext")]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-size_flags_vertical = 3
-max_value = 10.0
-value = 6.0
-script = ExtResource("11_aiea4")
-mytext = NodePath("../../Number/Chrom_ Aberration Strength Number")
-
-[node name="RGB_grid_toggle" type="CheckButton" parent="Buttons" node_paths=PackedStringArray("mytext")]
-layout_mode = 2
-action_mode = 0
-alignment = 2
-script = ExtResource("3_hpsg7")
-mytext = NodePath("../../Number/Enable RGB Grid Number")
-
-[node name="brightness_modifier_slider" type="HSlider" parent="Buttons" node_paths=PackedStringArray("mytext")]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 3
+size_flags_vertical = 4
 min_value = 0.8
 max_value = 2.0
 step = 0.05
 value = 1.2
 script = ExtResource("2_w8bx6")
-mytext = NodePath("../../Number/Brightness Number")
+mytext = NodePath("../Brightness Number")
 
-[node name="bloom_toggle" type="CheckButton" parent="Buttons" node_paths=PackedStringArray("mytext")]
+[node name="Brightness Number" type="Label" parent="Better VBOX/Brightness"]
 layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
+
+[node name="Bloom Enable" type="HBoxContainer" parent="Better VBOX"]
+layout_mode = 2
+
+[node name="Enable Post-Bloom" type="Label" parent="Better VBOX/Bloom Enable"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Enable Post-Bloom"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="bloom_toggle" type="CheckButton" parent="Better VBOX/Bloom Enable" node_paths=PackedStringArray("mytext")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
 action_mode = 0
 alignment = 2
 script = ExtResource("14_o3nx5")
-mytext = NodePath("../../Number/Enable Post-Bloom Number")
+mytext = NodePath("../Enable Post-Bloom Number")
 
-[node name="bloom_threshold_slider" type="HSlider" parent="Buttons" node_paths=PackedStringArray("mytext")]
+[node name="Enable Post-Bloom Number" type="Label" parent="Better VBOX/Bloom Enable"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
+
+[node name="Bloom Intensity" type="HBoxContainer" parent="Better VBOX"]
+layout_mode = 2
+
+[node name="Bloom Intensity" type="Label" parent="Better VBOX/Bloom Intensity"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Bloom Intensity"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="bloom_intensity_slider" type="HSlider" parent="Better VBOX/Bloom Intensity" node_paths=PackedStringArray("mytext")]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-size_flags_vertical = 3
-max_value = 1.0
-step = 0.01
-value = 0.12
-script = ExtResource("9_o2frr")
-mytext = NodePath("../../Number/Bloom Threshold Number")
-
-[node name="bloom_intensity_slider" type="HSlider" parent="Buttons" node_paths=PackedStringArray("mytext")]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 3
+size_flags_vertical = 4
 max_value = 3.0
 step = 0.1
 value = 1.9
 script = ExtResource("10_viuso")
-mytext = NodePath("../../Number/Bloom Intensity Number")
+mytext = NodePath("../Bloom Intensity Number")
 
-[node name="Number" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = -645.0
-offset_right = 57.0
-offset_bottom = -5.0
-grow_vertical = 0
-
-[node name="Enable Dithering Number" type="Label" parent="Number"]
+[node name="Bloom Intensity Number" type="Label" parent="Better VBOX/Bloom Intensity"]
 layout_mode = 2
-text = "True"
+text = "110.0"
 label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="Color Depth Number" type="Label" parent="Number"]
+[node name="Bloom Threshold" type="HBoxContainer" parent="Better VBOX"]
 layout_mode = 2
-text = "110.0
-"
-label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
 
-[node name="Downscaling Number" type="Label" parent="Number"]
+[node name="Bloom Threshold" type="Label" parent="Better VBOX/Bloom Threshold"]
 layout_mode = 2
-text = "110.0
-"
+size_flags_horizontal = 3
+text = "Bloom Threshold"
 label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
 
-[node name="Enable Pre-Blur Number" type="Label" parent="Number"]
+[node name="bloom_threshold_slider" type="HSlider" parent="Better VBOX/Bloom Threshold" node_paths=PackedStringArray("mytext")]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-text = "True"
-label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.01
+value = 0.12
+script = ExtResource("9_o2frr")
+mytext = NodePath("../Bloom Threshold Number")
 
-[node name="Pre-Blur Strength Number" type="Label" parent="Number"]
+[node name="Bloom Threshold Number" type="Label" parent="Better VBOX/Bloom Threshold"]
 layout_mode = 2
-text = "110.0
-"
+text = "110.0"
 label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="Enable Grain Number" type="Label" parent="Number"]
+[node name="Enable Chromatic Aberration" type="HBoxContainer" parent="Better VBOX"]
 layout_mode = 2
-text = "True"
-label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
 
-[node name="Grain Strength Number" type="Label" parent="Number"]
+[node name="Enable Chromatic Aberration" type="Label" parent="Better VBOX/Enable Chromatic Aberration"]
 layout_mode = 2
-text = "110.0
-"
+size_flags_horizontal = 3
+text = "Enable Chromatic Aberration"
 label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
 
-[node name="Enable Scanlines Number" type="Label" parent="Number"]
+[node name="chroma_aberr_toggle" type="CheckButton" parent="Better VBOX/Enable Chromatic Aberration" node_paths=PackedStringArray("mytext")]
 layout_mode = 2
-text = "True"
-label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+action_mode = 0
+alignment = 2
+script = ExtResource("11_q4563")
+mytext = NodePath("../Enable Chromatic Aberration Number")
 
-[node name="Scanlines Opacity Number" type="Label" parent="Number"]
+[node name="Enable Chromatic Aberration Number" type="Label" parent="Better VBOX/Enable Chromatic Aberration"]
 layout_mode = 2
-text = "110.0
-"
+text = "110.0"
 label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="Enable Curving Number" type="Label" parent="Number"]
+[node name="Chromatic Aberration Strength" type="HBoxContainer" parent="Better VBOX"]
 layout_mode = 2
-text = "True"
-label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
 
-[node name="Curving Strength Number" type="Label" parent="Number"]
+[node name="Chrom_ Aberration Strength" type="Label" parent="Better VBOX/Chromatic Aberration Strength"]
 layout_mode = 2
-text = "110.0
-"
+size_flags_horizontal = 3
+text = "Chrom. Aberration Strength"
 label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
 
-[node name="Enable Vignette Number" type="Label" parent="Number"]
+[node name="chroma_aberr_strength_slider" type="HSlider" parent="Better VBOX/Chromatic Aberration Strength" node_paths=PackedStringArray("mytext")]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-text = "True"
-label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 10.0
+value = 6.0
+script = ExtResource("11_aiea4")
+mytext = NodePath("../Chrom_ Aberration Strength Number")
 
-[node name="Vignette Size Number" type="Label" parent="Number"]
+[node name="Chrom_ Aberration Strength Number" type="Label" parent="Better VBOX/Chromatic Aberration Strength"]
 layout_mode = 2
-text = "110.0
-"
+text = "110.0"
 label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="Vignette smoothness Number" type="Label" parent="Number"]
+[node name="Enable CRT Grid" type="HBoxContainer" parent="Better VBOX"]
 layout_mode = 2
-text = "110.0
-"
-label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
 
-[node name="Enable VHS Wiggle Number" type="Label" parent="Number"]
+[node name="Enable RGB Grid" type="Label" parent="Better VBOX/Enable CRT Grid"]
 layout_mode = 2
-text = "True"
+size_flags_horizontal = 3
+text = "Enable RGB Grid"
 label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
 
-[node name="VHS Wiggle Strength Number" type="Label" parent="Number"]
+[node name="RGB_grid_toggle" type="CheckButton" parent="Better VBOX/Enable CRT Grid" node_paths=PackedStringArray("mytext")]
 layout_mode = 2
-text = "110.0
-"
-label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+action_mode = 0
+alignment = 2
+script = ExtResource("3_hpsg7")
+mytext = NodePath("../Enable RGB Grid Number")
 
-[node name="Enable Chromatic Aberration Number" type="Label" parent="Number"]
+[node name="Enable RGB Grid Number" type="Label" parent="Better VBOX/Enable CRT Grid"]
 layout_mode = 2
-text = "True
-"
+text = "110.0"
 label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="Chrom_ Aberration Strength Number" type="Label" parent="Number"]
+[node name="Enable Scanlines" type="HBoxContainer" parent="Better VBOX"]
 layout_mode = 2
-text = "110.0
-"
-label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
 
-[node name="Enable RGB Grid Number" type="Label" parent="Number"]
+[node name="Enable Scanlines" type="Label" parent="Better VBOX/Enable Scanlines"]
 layout_mode = 2
-text = "True"
+size_flags_horizontal = 3
+text = "Enable Scanlines"
 label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
 
-[node name="Brightness Number" type="Label" parent="Number"]
+[node name="scanlines_toggle" type="CheckButton" parent="Better VBOX/Enable Scanlines" node_paths=PackedStringArray("mytext")]
 layout_mode = 2
-text = "110.0
-"
-label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+action_mode = 0
+alignment = 2
+script = ExtResource("6_2d0vw")
+mytext = NodePath("../Enable Scanlines Number")
 
-[node name="Enable Post-Bloom Number" type="Label" parent="Number"]
+[node name="Enable Scanlines Number" type="Label" parent="Better VBOX/Enable Scanlines"]
 layout_mode = 2
-text = "True"
+text = "110.0"
 label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
+vertical_alignment = 1
 
-[node name="Bloom Threshold Number" type="Label" parent="Number"]
+[node name="Scalines Opacity" type="HBoxContainer" parent="Better VBOX"]
 layout_mode = 2
-text = "110.0
-"
-label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
 
-[node name="Bloom Intensity Number" type="Label" parent="Number"]
+[node name="Scanlines Opacity" type="Label" parent="Better VBOX/Scalines Opacity"]
 layout_mode = 2
-text = "110.0
-"
+size_flags_horizontal = 3
+text = "Scanlines Opacity"
 label_settings = SubResource("LabelSettings_4uar2")
-horizontal_alignment = 2
+
+[node name="scanlines_opacity_slider" type="HSlider" parent="Better VBOX/Scalines Opacity" node_paths=PackedStringArray("mytext")]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.45
+script = ExtResource("2_7o34y")
+mytext = NodePath("../Scanlines Opacity Number")
+
+[node name="Scanlines Opacity Number" type="Label" parent="Better VBOX/Scalines Opacity"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
+
+[node name="Enable Grain" type="HBoxContainer" parent="Better VBOX"]
+layout_mode = 2
+
+[node name="Enable Grain" type="Label" parent="Better VBOX/Enable Grain"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Enable Grain"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="grain_toggle" type="CheckButton" parent="Better VBOX/Enable Grain" node_paths=PackedStringArray("mytext")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+action_mode = 0
+alignment = 2
+script = ExtResource("5_v5nl2")
+mytext = NodePath("../Enable Grain Number")
+
+[node name="Enable Grain Number" type="Label" parent="Better VBOX/Enable Grain"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
+
+[node name="Grain Strength" type="HBoxContainer" parent="Better VBOX"]
+layout_mode = 2
+
+[node name="Grain Strength" type="Label" parent="Better VBOX/Grain Strength"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Grain Strength"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="grain_slider" type="HSlider" parent="Better VBOX/Grain Strength" node_paths=PackedStringArray("mytext")]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 0.3
+script = ExtResource("6_gyjwn")
+mytext = NodePath("../Grain Strength Number")
+
+[node name="Grain Strength Number" type="Label" parent="Better VBOX/Grain Strength"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
+
+[node name="Enable VHS Wiggle" type="HBoxContainer" parent="Better VBOX"]
+layout_mode = 2
+
+[node name="Enable VHS Wiggle" type="Label" parent="Better VBOX/Enable VHS Wiggle"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Enable VHS Wiggle"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="VHS_wiggle_toggle" type="CheckButton" parent="Better VBOX/Enable VHS Wiggle" node_paths=PackedStringArray("mytext")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+action_mode = 0
+alignment = 2
+script = ExtResource("10_hk3fq")
+mytext = NodePath("../Enable VHS Wiggle Number")
+
+[node name="Enable VHS Wiggle Number" type="Label" parent="Better VBOX/Enable VHS Wiggle"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
+
+[node name="VHS Wiggle Strength" type="HBoxContainer" parent="Better VBOX"]
+layout_mode = 2
+
+[node name="VHS Wiggle Strength" type="Label" parent="Better VBOX/VHS Wiggle Strength"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "VHS Wiggle Strength"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="VHS_wiggle_strength_slider" type="HSlider" parent="Better VBOX/VHS Wiggle Strength" node_paths=PackedStringArray("mytext")]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 0.5
+step = 0.001
+value = 0.01
+script = ExtResource("10_fgp3q")
+mytext = NodePath("../VHS Wiggle Strength Number")
+
+[node name="VHS Wiggle Strength Number" type="Label" parent="Better VBOX/VHS Wiggle Strength"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
+
+[node name="Enable Vignette" type="HBoxContainer" parent="Better VBOX"]
+layout_mode = 2
+
+[node name="Enable Vignette" type="Label" parent="Better VBOX/Enable Vignette"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Enable Vignette"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="vignette_toggle" type="CheckButton" parent="Better VBOX/Enable Vignette" node_paths=PackedStringArray("mytext")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+action_mode = 0
+alignment = 2
+script = ExtResource("8_d5de4")
+mytext = NodePath("../Enable Vignette Number")
+
+[node name="Enable Vignette Number" type="Label" parent="Better VBOX/Enable Vignette"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
+
+[node name="Vignette Size" type="HBoxContainer" parent="Better VBOX"]
+layout_mode = 2
+
+[node name="Vignette Size" type="Label" parent="Better VBOX/Vignette Size"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Vignette Size"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="vignette_size_slider" type="HSlider" parent="Better VBOX/Vignette Size" node_paths=PackedStringArray("mytext")]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.1
+max_value = 10.0
+step = 0.1
+value = 0.4
+script = ExtResource("8_tlj3q")
+mytext = NodePath("../Vignette Size Number")
+
+[node name="Vignette Size Number" type="Label" parent="Better VBOX/Vignette Size"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
+
+[node name="Vignette Smoothness" type="HBoxContainer" parent="Better VBOX"]
+layout_mode = 2
+
+[node name="Vignette smoothness" type="Label" parent="Better VBOX/Vignette Smoothness"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Vignette smoothness"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="vignette_smoothness_slider" type="HSlider" parent="Better VBOX/Vignette Smoothness" node_paths=PackedStringArray("mytext")]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.05
+max_value = 5.0
+step = 0.05
+value = 0.4
+script = ExtResource("9_tuipt")
+mytext = NodePath("../Vignette smoothness Number")
+
+[node name="Vignette smoothness Number" type="Label" parent="Better VBOX/Vignette Smoothness"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
+
+[node name="Enable Curving" type="HBoxContainer" parent="Better VBOX"]
+layout_mode = 2
+
+[node name="Enable Curving" type="Label" parent="Better VBOX/Enable Curving"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Enable Curving"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="curving_toggle" type="CheckButton" parent="Better VBOX/Enable Curving" node_paths=PackedStringArray("mytext")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+action_mode = 0
+alignment = 2
+script = ExtResource("7_23pnb")
+mytext = NodePath("../Enable Curving Number")
+
+[node name="Enable Curving Number" type="Label" parent="Better VBOX/Enable Curving"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
+
+[node name="Curvature Slider" type="HBoxContainer" parent="Better VBOX"]
+layout_mode = 2
+
+[node name="Curving Strength" type="Label" parent="Better VBOX/Curvature Slider"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Curving Strength"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="curvature_slider" type="HSlider" parent="Better VBOX/Curvature Slider" node_paths=PackedStringArray("mytext")]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 1.0
+max_value = 1.05
+step = 0.005
+value = 1.02
+script = ExtResource("3_e705y")
+mytext = NodePath("../Curving Strength Number")
+
+[node name="Curving Strength Number" type="Label" parent="Better VBOX/Curvature Slider"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1

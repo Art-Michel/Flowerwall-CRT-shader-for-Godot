@@ -17,10 +17,6 @@ boot_splash/use_filter=false
 boot_splash/image="uid://c6q0bu8majs67"
 config/icon="res://demo_scene/icon.svg"
 
-[autoload]
-
-flowerwall_pp_autoload="*res://addons/flowerwall_postprocess/scenes/flowerwall_pp.tscn"
-
 [display]
 
 window/size/viewport_width=1440
@@ -31,7 +27,3 @@ window/stretch/mode="canvas_items"
 [editor]
 
 movie_writer/movie_file="D:/Godot/Godot Projects/Flowerwall-CRT-shader-for-Godot/movie.avi"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/flowerwall_postprocess/plugin.cfg")

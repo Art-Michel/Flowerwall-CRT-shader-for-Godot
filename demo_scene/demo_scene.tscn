@@ -4,7 +4,7 @@
 [ext_resource type="Environment" uid="uid://cg2ccuuf31bkr" path="res://demo_scene/demo_environment.tres" id="1_r3oby"]
 [ext_resource type="Script" uid="uid://d3mqyrn4miyph" path="res://demo_scene/oscillator.gd" id="2_vwfmo"]
 [ext_resource type="PackedScene" uid="uid://ba2qrib4ijl0l" path="res://demo_scene/gltf_broce/brocelome.tscn" id="3_ailwu"]
-[ext_resource type="PackedScene" uid="uid://cn74tfmybnhix" path="res://addons/flowerwall_postprocess/scenes/flowerwall_crt_config_ui.tscn" id="3_x1ct0"]
+[ext_resource type="PackedScene" uid="uid://cc1fomjf362h5" path="res://addons/flowerwall_postprocess/scenes/flowerwall_pp.tscn" id="5_ailwu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6avdl"]
 albedo_color = Color(1, 1, 0, 1)
@@ -131,15 +131,8 @@ amplitude = 0.25
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_r3oby")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="FlowerwallCrtConfigUi" parent="CanvasLayer" instance=ExtResource("3_x1ct0")]
-visible = false
-offset_left = -127.0
-offset_top = 678.0
-offset_right = -127.0
-offset_bottom = 678.0
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.66566, 0.646998, 0.371875, 3.0961e-08, 0.498321, -0.866993, -0.746255, 0.577122, 0.331713, 0, 2.75229, -1.088)
+transform = Transform3D(1, 0, 0, 0, 0.730937, -0.682445, 0, 0.682445, 0.730937, -0.241268, 2.69783, -1.1583)
 light_color = Color(0.885932, 0.799963, 0.833785, 1)
+
+[node name="flowerwall_pp" parent="." instance=ExtResource("5_ailwu")]

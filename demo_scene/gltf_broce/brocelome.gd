@@ -11,3 +11,4 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	position.y = initial_pos.y + sin(Time.get_ticks_msec() *0.001 * speed) * amplitude
+	rotation.y = Time.get_ticks_msec() *0.001 * speed

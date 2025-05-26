@@ -5,7 +5,7 @@ extends HSlider
 func _ready() -> void:
 	connect("value_changed", flowerwall_pp._on_downscale_changed)
 	connect("value_changed", _on_value_changed)
-	value = flowerwallPP.DITHERING_SHADER.get("shader_parameter/resolution_scale")
+	value = flowerwall_pp.DITHERING_SHADER.get("shader_parameter/resolution_scale")
 	mytext.text = str(value)
 	
 func _on_value_changed(a: float) -> void:
