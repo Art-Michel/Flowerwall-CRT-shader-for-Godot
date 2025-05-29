@@ -14,7 +14,6 @@ config/name="Flowerwall_Shader_demo"
 run/main_scene="res://demo_scene/demo_scene.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/use_filter=false
-boot_splash/image="uid://c6q0bu8majs67"
 config/icon="res://demo_scene/icon.svg"
 
 [autoload]

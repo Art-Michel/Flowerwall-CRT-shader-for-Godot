@@ -32,17 +32,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52883, 0)
 environment = ExtResource("1_r3oby")
 fov = 22.9
 
-[node name="Icon" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(410, 96)
-texture = ExtResource("1_ovq1f")
-
-[node name="Icon" type="Sprite2D" parent="Icon"]
-visible = false
-position = Vector2(174.5, 45.5)
-scale = Vector2(1.67969, 1.67969)
-texture = ExtResource("1_ovq1f")
-
 [node name="Brocelome" parent="." instance=ExtResource("3_ailwu")]
 transform = Transform3D(-0.998848, 0, -0.0479954, 0, 1, 0, 0.0479954, 0, -0.998848, -0.323361, 1.03688, -13.6003)
 speed = 1.1
@@ -133,3 +122,12 @@ environment = ExtResource("1_r3oby")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.730937, -0.682445, 0, 0.682445, 0.730937, -0.241268, 2.69783, -1.1583)
 light_color = Color(0.885932, 0.799963, 0.833785, 1)
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(1152, 678)
+scale = Vector2(1.72599, 1.72599)
+texture = ExtResource("1_ovq1f")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(1350, 726)
+texture = ExtResource("1_ovq1f")
