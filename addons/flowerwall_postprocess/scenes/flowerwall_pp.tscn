@@ -4,11 +4,11 @@
 [ext_resource type="Script" uid="uid://dxlwhj47enyqa" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/presets.gd" id="2_aii1a"]
 [ext_resource type="Script" uid="uid://tog6nmrph15b" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/flowerwall_pp_ui_slider.gd" id="8_orrbg"]
 [ext_resource type="Script" uid="uid://c5emn1tatcw1r" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/flowerwall_pp_ui_toggle.gd" id="9_30wqw"]
-[ext_resource type="Material" uid="uid://cb5ciofyqr5vn" path="res://addons/flowerwall_postprocess/shaders/dithering_shader.material" id="26_aii1a"]
-[ext_resource type="Material" uid="uid://deiawuf2cucum" path="res://addons/flowerwall_postprocess/shaders/blurx_shader.material" id="27_yx2vx"]
-[ext_resource type="Material" uid="uid://c4nq30e68h630" path="res://addons/flowerwall_postprocess/shaders/crt_shader.material" id="28_aii1a"]
-[ext_resource type="Material" uid="uid://bm7ns6dfwwr0l" path="res://addons/flowerwall_postprocess/shaders/blury_shader.material" id="28_yx2vx"]
-[ext_resource type="Material" uid="uid://cycc3fd36bidb" path="res://addons/flowerwall_postprocess/shaders/bloom_shader.material" id="29_aii1a"]
+[ext_resource type="Material" uid="uid://dmqqpyc7kkftv" path="res://addons/flowerwall_postprocess/shaders/dithering_shader.material" id="26_aii1a"]
+[ext_resource type="Material" uid="uid://bpy0g6i4qtep0" path="res://addons/flowerwall_postprocess/shaders/blurx_shader.material" id="27_yx2vx"]
+[ext_resource type="Material" uid="uid://bm0yxl24n8g0j" path="res://addons/flowerwall_postprocess/shaders/crt_shader.material" id="28_aii1a"]
+[ext_resource type="Material" uid="uid://cs8x7364epe1n" path="res://addons/flowerwall_postprocess/shaders/blury_shader.material" id="28_yx2vx"]
+[ext_resource type="Material" uid="uid://dysby513jvmle" path="res://addons/flowerwall_postprocess/shaders/bloom_shader.material" id="29_aii1a"]
 [ext_resource type="Script" uid="uid://dtpi5lt33t6eg" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/close.gd" id="32_8p6dx"]
 [ext_resource type="Script" uid="uid://ch7evcy0lie0m" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/save.gd" id="32_jahb0"]
 
@@ -123,7 +123,7 @@ offset_top = 56.0
 offset_right = 506.5
 offset_bottom = 87.0
 grow_horizontal = 2
-item_count = 5
+item_count = 6
 popup/item_0/text = "Sharp"
 popup/item_0/id = 0
 popup/item_1/text = "Crisp low-res"
@@ -134,6 +134,8 @@ popup/item_3/text = "CRT TV"
 popup/item_3/id = 3
 popup/item_4/text = "VHS Tape"
 popup/item_4/id = 4
+popup/item_5/text = "Artoria's prefered settings"
+popup/item_5/id = 5
 script = ExtResource("2_aii1a")
 color_compression = NodePath("../Options/Color Compression/color_compression_slider")
 downscale = NodePath("../Options/Downscaling/downscale_slider")
@@ -464,19 +466,19 @@ _var = "shader_parameter/curve_power"
 
 [node name="Close" type="Button" parent="UI/FlowerwallCrtConfigUi"]
 layout_mode = 0
-offset_left = 983.0
+offset_left = 1014.0
 offset_top = 45.0
-offset_right = 1109.0
-offset_bottom = 98.0
+offset_right = 1140.0
+offset_bottom = 99.0
 text = "Close
 (F1)"
 script = ExtResource("32_8p6dx")
 
 [node name="Save" type="Button" parent="UI/FlowerwallCrtConfigUi" node_paths=PackedStringArray("dithering_mat", "preblur_x_mat", "preblur_y_mat", "crt_mat", "bloom_mat")]
 layout_mode = 0
-offset_left = 831.0
+offset_left = 862.0
 offset_top = 45.0
-offset_right = 957.0
+offset_right = 988.0
 offset_bottom = 98.0
 text = "Save
 "

@@ -85,7 +85,7 @@ func _on_preset_selected(value:int) -> void:
 			bloom_i.value = 2.4
 			rgb.button_pressed = true
 
-		4: # VHS Tape (
+		4: # VHS Tape
 			color_compression.value = 3
 			downscale.value = 2.0
 			preblur_sl.value = 4
@@ -100,3 +100,19 @@ func _on_preset_selected(value:int) -> void:
 			bloom_t.value = 0.14
 			bloom_i.value = 0.1
 			rgb.button_pressed = false
+
+		5: #Artoria's prefered preset
+			color_compression.value = 0
+			downscale.value = 0.0
+			preblur_sl.value = 3
+			grain_sl.value = 0.2
+			scanlines_sl.value = 0.15
+			curve_sl.value = 1.0
+			vignette_size_sl.value = 0.1
+			vignette_smoothness_sl.value = 0.05
+			wiggle_sl.value = 0.00
+			chromaberr_sl.value = 0.0
+			brightness.value = 1.2
+			bloom_t.value = 0.22
+			bloom_i.value = 1.8
+			rgb.button_pressed = true
