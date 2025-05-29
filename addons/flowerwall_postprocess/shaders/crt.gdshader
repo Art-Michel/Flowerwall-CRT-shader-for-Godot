@@ -8,7 +8,7 @@ uniform bool enable_chromatic_aberration = true;
 uniform bool enable_rgb_grid = true;
 uniform bool enable_vhs_wiggle = true;
 uniform bool enable_vignette = false;
-uniform float brightness_multiplier:hint_range(0.7,2.0, 0.01) = 1.05;
+uniform float brightness_multiplier:hint_range(1.0,1.2, 0.05) = 1.05;
 
 group_uniforms grain_settings;
 uniform float grain_strength: hint_range(0.0, 1.0, 0.05) = 0.25;

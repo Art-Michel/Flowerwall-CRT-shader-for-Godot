@@ -2,12 +2,9 @@
 extends EditorPlugin
 
 func _enter_tree():
-	print_debug("mario!")
-	InputMap.add_action("crt_menu")
-	var ev = InputEventKey.new()
-	ev.keycode = KEY_F1
-	InputMap.action_add_event("crt_menu", ev)
+	add_autoload_singleton("flowerwall_crt", "res://addons/flowerwall_postprocess/scenes/flowerwall_pp.tscn")
+	print_debug("flowerwall!")
 
 func _exit_tree():
-	InputMap.erase_action("crt_menu")
-	pass
+	remove_autoload_singleton("flowerwall_crt")
+	print_debug("flowerwalln't!")

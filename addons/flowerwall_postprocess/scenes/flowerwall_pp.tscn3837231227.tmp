@@ -1,14 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://cc1fomjf362h5"]
+[gd_scene load_steps=13 format=3 uid="uid://cc1fomjf362h5"]
 
 [ext_resource type="Script" uid="uid://dmk7ono2imeae" path="res://addons/flowerwall_postprocess/scripts/flowerwall_pp_script.gd" id="1_8p6dx"]
+[ext_resource type="Texture2D" uid="uid://d8wiviwjayhd" path="res://demo_scene/icon.svg" id="2_8p6dx"]
 [ext_resource type="Script" uid="uid://dxlwhj47enyqa" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/presets.gd" id="2_aii1a"]
-[ext_resource type="Script" uid="uid://tog6nmrph15b" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/flowerwall_pp_ui_slider.gd" id="8_orrbg"]
-[ext_resource type="Script" uid="uid://c5emn1tatcw1r" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/flowerwall_pp_ui_toggle.gd" id="9_30wqw"]
-[ext_resource type="Material" uid="uid://cb5ciofyqr5vn" path="res://addons/flowerwall_postprocess/shaders/dithering_shader.material" id="26_aii1a"]
-[ext_resource type="Material" uid="uid://deiawuf2cucum" path="res://addons/flowerwall_postprocess/shaders/blurx_shader.material" id="27_yx2vx"]
-[ext_resource type="Material" uid="uid://c4nq30e68h630" path="res://addons/flowerwall_postprocess/shaders/crt_shader.material" id="28_aii1a"]
-[ext_resource type="Material" uid="uid://bm7ns6dfwwr0l" path="res://addons/flowerwall_postprocess/shaders/blury_shader.material" id="28_yx2vx"]
-[ext_resource type="Material" uid="uid://cycc3fd36bidb" path="res://addons/flowerwall_postprocess/shaders/bloom_shader.material" id="29_aii1a"]
+[ext_resource type="Material" uid="uid://bnr5tn0x5qvwj" path="res://addons/flowerwall_postprocess/shaders/dithering_shader.material" id="26_aii1a"]
+[ext_resource type="Material" uid="uid://difqnprw5sdmo" path="res://addons/flowerwall_postprocess/shaders/blurx_shader.material" id="27_yx2vx"]
+[ext_resource type="Material" uid="uid://b74gukjb8mbiq" path="res://addons/flowerwall_postprocess/shaders/crt_shader.material" id="28_aii1a"]
+[ext_resource type="Material" uid="uid://decmaehk25c1j" path="res://addons/flowerwall_postprocess/shaders/blury_shader.material" id="28_yx2vx"]
+[ext_resource type="Material" uid="uid://s04pnxqp57pk" path="res://addons/flowerwall_postprocess/shaders/bloom_shader.material" id="29_aii1a"]
 [ext_resource type="Script" uid="uid://dtpi5lt33t6eg" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/close.gd" id="32_8p6dx"]
 [ext_resource type="Script" uid="uid://ch7evcy0lie0m" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/save.gd" id="32_jahb0"]
 
@@ -16,7 +15,7 @@
 font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_4uar2"]
-font_size = 20
+font_size = 17
 
 [node name="flowerwall_pp" type="Control" node_paths=PackedStringArray("flowerwall_crt_config_ui", "dither", "preblur_x", "preblur_y", "post_bloom", "crt")]
 layout_mode = 3
@@ -34,6 +33,11 @@ preblur_x = NodePath("preblur_x")
 preblur_y = NodePath("preblur_y")
 post_bloom = NodePath("post_bloom")
 crt = NodePath("CRT")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(957, 335)
+texture = ExtResource("2_8p6dx")
 
 [node name="dithering" type="CanvasLayer" parent="."]
 layer = 99
@@ -113,7 +117,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 color = Color(0.121569, 0.121569, 0.121569, 0.721569)
 
-[node name="Presets" type="OptionButton" parent="UI/FlowerwallCrtConfigUi" node_paths=PackedStringArray("color_compression", "downscale", "preblur_sl", "grain_sl", "scanlines_sl", "curve_sl", "vignette_size_sl", "vignette_smoothness_sl", "wiggle_sl", "chromaberr_sl", "brightness", "bloom_t", "bloom_i", "rgb")]
+[node name="Presets" type="OptionButton" parent="UI/FlowerwallCrtConfigUi" node_paths=PackedStringArray("color_depth", "downscale", "preblur_sl", "grain_sl", "scanlines_sl", "curve_sl", "vignette_size_sl", "vignette_smoothness_sl", "wiggle_sl", "chromaberr", "chromaberr_sl", "rgb_grid", "brightness", "bloom_t", "bloom_i")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -135,7 +139,7 @@ popup/item_3/id = 3
 popup/item_4/text = "VHS Tape"
 popup/item_4/id = 4
 script = ExtResource("2_aii1a")
-color_compression = NodePath("../Options/Color Compression/color_compression_slider")
+color_depth = NodePath("../Options/Color Compression/color_depth_slider")
 downscale = NodePath("../Options/Downscaling/downscale_slider")
 preblur_sl = NodePath("../Options/Pre-Blur Strength/blur_slider")
 grain_sl = NodePath("../Options/Grain Strength/grain_slider")
@@ -144,11 +148,12 @@ curve_sl = NodePath("../Options/Curvature Slider/curvature_slider")
 vignette_size_sl = NodePath("../Options/Vignette Size/vignette_size_slider")
 vignette_smoothness_sl = NodePath("../Options/Vignette Smoothness/vignette_smoothness_slider")
 wiggle_sl = NodePath("../Options/VHS Wiggle Strength/VHS_wiggle_strength_slider")
+chromaberr = NodePath("")
 chromaberr_sl = NodePath("../Options/Chromatic Aberration Strength/chroma_aberr_strength_slider")
+rgb_grid = NodePath("../Options/Enable CRT Grid/RGB_grid_toggle")
 brightness = NodePath("../Options/Brightness/brightness_modifier_slider")
 bloom_t = NodePath("../Options/Bloom Threshold/bloom_threshold_slider")
 bloom_i = NodePath("../Options/Bloom Intensity/bloom_intensity_slider")
-rgb = NodePath("../Options/Enable CRT Grid/RGB_grid_toggle")
 
 [node name="Preset" type="Label" parent="UI/FlowerwallCrtConfigUi/Presets"]
 layout_mode = 1
@@ -187,28 +192,36 @@ size_flags_vertical = 4
 min_value = 1.0
 max_value = 32.0
 value = 1.0
-script = ExtResource("8_orrbg")
-_mat = ExtResource("26_aii1a")
-_var = "shader_parameter/downscaling_strength"
+
+[node name="Downscaling Number" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Downscaling"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
 
 [node name="Color Compression" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options"]
 layout_mode = 2
 
-[node name="Color Compression" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Color Compression"]
+[node name="Color Depth" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Color Compression"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Color Compression"
+text = "Color Depth"
 label_settings = SubResource("LabelSettings_4uar2")
 
-[node name="color_compression_slider" type="HSlider" parent="UI/FlowerwallCrtConfigUi/Options/Color Compression"]
+[node name="color_depth_slider" type="HSlider" parent="UI/FlowerwallCrtConfigUi/Options/Color Compression"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-max_value = 7.0
-script = ExtResource("8_orrbg")
-_mat = ExtResource("26_aii1a")
-_var = "shader_parameter/color_compression"
+min_value = 1.0
+max_value = 8.0
+value = 8.0
+
+[node name="Color Depth Number" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Color Compression"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
 
 [node name="Pre-Blur Strength" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options"]
 layout_mode = 2
@@ -226,9 +239,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 max_value = 9.0
 value = 6.0
-script = ExtResource("8_orrbg")
-_mat = ExtResource("27_yx2vx")
-_var = "shader_parameter/radius"
+
+[node name="Pre-Blur Strength Number" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Pre-Blur Strength"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
 
 [node name="Brightness" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options"]
 layout_mode = 2
@@ -244,13 +260,16 @@ custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-min_value = 1.0
-max_value = 1.5
+min_value = 0.8
+max_value = 2.0
 step = 0.05
-value = 1.05
-script = ExtResource("8_orrbg")
-_mat = ExtResource("28_aii1a")
-_var = "shader_parameter/brightness_multiplier"
+value = 1.2
+
+[node name="Brightness Number" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Brightness"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
 
 [node name="Bloom Threshold" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options"]
 layout_mode = 2
@@ -269,9 +288,12 @@ size_flags_vertical = 4
 max_value = 1.0
 step = 0.01
 value = 0.12
-script = ExtResource("8_orrbg")
-_mat = ExtResource("29_aii1a")
-_var = "shader_parameter/bloom_threshold"
+
+[node name="Bloom Threshold Number" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Bloom Threshold"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
 
 [node name="Bloom Intensity" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options"]
 layout_mode = 2
@@ -289,10 +311,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 max_value = 3.0
 step = 0.1
-value = 0.5
-script = ExtResource("8_orrbg")
-_mat = ExtResource("29_aii1a")
-_var = "shader_parameter/bloom_intensity"
+value = 1.9
+
+[node name="Bloom Intensity Number" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Bloom Intensity"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
 
 [node name="Chromatic Aberration Strength" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options"]
 layout_mode = 2
@@ -310,9 +335,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 max_value = 10.0
 value = 6.0
-script = ExtResource("8_orrbg")
-_mat = ExtResource("28_aii1a")
-_var = "shader_parameter/chromatic_aberration_strength"
+
+[node name="Chrom_ Aberration Strength Number" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Chromatic Aberration Strength"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
 
 [node name="Enable CRT Grid" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options"]
 layout_mode = 2
@@ -329,9 +357,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 action_mode = 0
 alignment = 2
-script = ExtResource("9_30wqw")
-_mat = ExtResource("28_aii1a")
-_var = "shader_parameter/enable_rgb_grid"
+
+[node name="Enable RGB Grid Number" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Enable CRT Grid"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
 
 [node name="Scalines Opacity" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options"]
 layout_mode = 2
@@ -350,9 +381,12 @@ size_flags_vertical = 4
 max_value = 1.0
 step = 0.05
 value = 0.45
-script = ExtResource("8_orrbg")
-_mat = ExtResource("28_aii1a")
-_var = "shader_parameter/scanline_opacity"
+
+[node name="Scanlines Opacity Number" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Scalines Opacity"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
 
 [node name="Grain Strength" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options"]
 layout_mode = 2
@@ -371,9 +405,12 @@ size_flags_vertical = 4
 max_value = 1.0
 step = 0.05
 value = 0.3
-script = ExtResource("8_orrbg")
-_mat = ExtResource("28_aii1a")
-_var = "shader_parameter/grain_strength"
+
+[node name="Grain Strength Number" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Grain Strength"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
 
 [node name="VHS Wiggle Strength" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options"]
 layout_mode = 2
@@ -392,9 +429,12 @@ size_flags_vertical = 4
 max_value = 0.5
 step = 0.001
 value = 0.01
-script = ExtResource("8_orrbg")
-_mat = ExtResource("28_aii1a")
-_var = "shader_parameter/wiggle"
+
+[node name="VHS Wiggle Strength Number" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/VHS Wiggle Strength"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
 
 [node name="Vignette Size" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options"]
 layout_mode = 2
@@ -414,9 +454,12 @@ min_value = 0.1
 max_value = 10.0
 step = 0.1
 value = 0.4
-script = ExtResource("8_orrbg")
-_mat = ExtResource("28_aii1a")
-_var = "shader_parameter/vignette_size"
+
+[node name="Vignette Size Number" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Vignette Size"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
 
 [node name="Vignette Smoothness" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options"]
 layout_mode = 2
@@ -436,9 +479,12 @@ min_value = 0.05
 max_value = 5.0
 step = 0.05
 value = 0.4
-script = ExtResource("8_orrbg")
-_mat = ExtResource("28_aii1a")
-_var = "shader_parameter/vignette_smoothness"
+
+[node name="Vignette smoothness Number" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Vignette Smoothness"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
 
 [node name="Curvature Slider" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options"]
 layout_mode = 2
@@ -458,9 +504,12 @@ min_value = 1.0
 max_value = 1.05
 step = 0.005
 value = 1.02
-script = ExtResource("8_orrbg")
-_mat = ExtResource("28_aii1a")
-_var = "shader_parameter/curve_power"
+
+[node name="Curving Strength Number" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Curvature Slider"]
+layout_mode = 2
+text = "110.0"
+label_settings = SubResource("LabelSettings_4uar2")
+vertical_alignment = 1
 
 [node name="Close" type="Button" parent="UI/FlowerwallCrtConfigUi"]
 layout_mode = 0
@@ -489,7 +538,7 @@ bloom_mat = NodePath("../../../post_bloom/bloom")
 
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Downscaling/downscale_slider" to="." method="_on_downscale_slider_value_changed"]
-[connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Color Compression/color_compression_slider" to="." method="_on_color_depth_slider_value_changed"]
+[connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Color Compression/color_depth_slider" to="." method="_on_color_depth_slider_value_changed"]
 [connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Pre-Blur Strength/blur_slider" to="." method="_on_blur_slider_value_changed"]
 [connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Brightness/brightness_modifier_slider" to="." method="_on_brightness_modifier_slider_value_changed"]
 [connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Bloom Threshold/bloom_threshold_slider" to="." method="_on_bloom_threshold_slider_value_changed"]
