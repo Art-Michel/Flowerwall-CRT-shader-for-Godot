@@ -140,6 +140,10 @@ func _on_scanlines_opacity_slider_value_changed(value: float) -> void:
 	CRT_SHADER.set("shader_parameter/scanline_opacity", value)
 	should_enable_crt()
 
+func _on_scanlines_size_slider_value_changed(value: float) -> void:
+	CRT_SHADER.set("shader_parameter/scanline_thickness", value)
+	CRT_SHADER.set("shader_parameter/scanlines_interval", value *2)
+	should_enable_crt()
 
 func _on_grain_slider_value_changed(value: float) -> void:
 	CRT_SHADER.set("shader_parameter/grain_strength", value)

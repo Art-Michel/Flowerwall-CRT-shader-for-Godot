@@ -14,7 +14,7 @@ config/name="Flowerwall_Shader_demo"
 run/main_scene="res://demo_scene/demo_scene.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/use_filter=false
-config/icon="res://demo_scene/icon.svg"
+config/icon="uid://c3j141ppyjs47"
 
 [autoload]
 
@@ -22,9 +22,6 @@ flowerwall_crt="*res://addons/flowerwall_postprocess/scenes/flowerwall_pp.tscn"
 
 [display]
 
-window/size/viewport_width=1440
-window/size/viewport_height=810
-window/size/mode=2
 window/stretch/mode="canvas_items"
 
 [editor]

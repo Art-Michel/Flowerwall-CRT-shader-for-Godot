@@ -7,16 +7,13 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6avdl"]
 albedo_color = Color(1, 1, 0, 1)
-metallic = 1.0
-metallic_specular = 0.0
-roughness = 0.0
 emission_enabled = true
-emission = Color(0.976471, 1, 0, 1)
-emission_energy_multiplier = 0.34
+emission = Color(0.447254, 0.45871, 3.85046e-07, 1)
+emission_energy_multiplier = 0.24
 
 [sub_resource type="TorusMesh" id="TorusMesh_p3fn3"]
 material = SubResource("StandardMaterial3D_6avdl")
-inner_radius = 0.201
+inner_radius = 0.158
 outer_radius = 0.298
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o1bwy"]
@@ -28,89 +25,79 @@ material = SubResource("StandardMaterial3D_o1bwy")
 [node name="DemoScene" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52883, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52883, 3.14936)
 environment = ExtResource("1_r3oby")
 fov = 22.9
 
 [node name="Brocelome" parent="." instance=ExtResource("3_ailwu")]
 transform = Transform3D(-0.998848, 0, -0.0479954, 0, 1, 0, 0.0479954, 0, -0.998848, -0.323361, 1.03688, -13.6003)
-speed = 1.1
+speed = 0.8
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -3, 0, -3.6124)
-visible = false
+transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -4.58024, -0.80149, -13.8497)
 mesh = SubResource("TorusMesh_p3fn3")
 script = ExtResource("2_vwfmo")
 speed = 1.3
 amplitude = 0.1
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -3, 0, -5.6124)
-visible = false
+transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -4.58024, -0.80149, -15.8497)
 mesh = SubResource("TorusMesh_p3fn3")
 script = ExtResource("2_vwfmo")
 speed = 1.3
 amplitude = 0.1
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -3, 0, -7.6124)
-visible = false
+transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -4.58024, -0.80149, -17.8497)
 mesh = SubResource("TorusMesh_p3fn3")
 script = ExtResource("2_vwfmo")
 speed = 1.3
 amplitude = 0.1
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -3, 0, -9.6124)
-visible = false
+transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -4.58024, -0.80149, -19.8497)
 mesh = SubResource("TorusMesh_p3fn3")
 script = ExtResource("2_vwfmo")
 speed = 1.3
 amplitude = 0.1
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -1, 0, -3.6124)
-visible = false
+transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -3.34624, -0.80149, -13.8497)
 mesh = SubResource("TorusMesh_p3fn3")
 script = ExtResource("2_vwfmo")
 speed = 1.3
 amplitude = 0.1
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -1, 0, -5.6124)
-visible = false
+transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -3.34624, -0.80149, -15.8497)
 mesh = SubResource("TorusMesh_p3fn3")
 script = ExtResource("2_vwfmo")
 speed = 1.3
 amplitude = 0.1
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -1, 0, -7.6124)
-visible = false
+transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -3.34624, -0.80149, -17.8497)
 mesh = SubResource("TorusMesh_p3fn3")
 script = ExtResource("2_vwfmo")
 speed = 1.3
 amplitude = 0.1
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -1, 0, -9.6124)
-visible = false
+transform = Transform3D(2.98023e-08, 1, 0, -1, 2.98023e-08, 0, 0, 0, 1, -3.34624, -0.80149, -19.8497)
 mesh = SubResource("TorusMesh_p3fn3")
 script = ExtResource("2_vwfmo")
 speed = 1.3
 amplitude = 0.1
 
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.83914, 0.560562, 1.57484, 0.830671, 2.22047, -2.28792, -1.45063, 2.36862, 1.77211, -12.5841, 3.94044, -17)
-visible = false
+transform = Transform3D(2.83914, 0.560562, 1.57484, 0.830671, 2.22047, -2.28792, -1.45063, 2.36862, 1.77211, 9.82038, 4.79554, -40.9431)
 mesh = SubResource("BoxMesh_pxxb4")
 script = ExtResource("2_vwfmo")
 speed = -1.0
 amplitude = 0.75
 
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.83914, 0.560562, 1.57484, -1.45063, 2.36862, 1.77211, -0.830671, -2.22047, 2.28792, 7.41587, -4.05956, -12)
-visible = false
+transform = Transform3D(2.83914, 0.560562, 1.57484, -1.45063, 2.36862, 1.77211, -0.830671, -2.22047, 2.28792, -8.75993, 4.64105, -29.5548)
 mesh = SubResource("BoxMesh_pxxb4")
 script = ExtResource("2_vwfmo")
 speed = -0.2
@@ -124,10 +111,10 @@ transform = Transform3D(1, 0, 0, 0, 0.730937, -0.682445, 0, 0.682445, 0.730937, 
 light_color = Color(0.885932, 0.799963, 0.833785, 1)
 
 [node name="Icon3" type="Sprite2D" parent="."]
-position = Vector2(1152, 678)
+position = Vector2(821.463, 498.463)
 scale = Vector2(1.72599, 1.72599)
 texture = ExtResource("1_ovq1f")
 
 [node name="Icon2" type="Sprite2D" parent="."]
-position = Vector2(1350, 726)
+position = Vector2(1019.46, 546.463)
 texture = ExtResource("1_ovq1f")

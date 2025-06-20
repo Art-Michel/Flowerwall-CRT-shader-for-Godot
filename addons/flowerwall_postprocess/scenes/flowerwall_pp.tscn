@@ -4,11 +4,11 @@
 [ext_resource type="Script" uid="uid://dxlwhj47enyqa" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_presets.gd" id="2_aii1a"]
 [ext_resource type="Script" uid="uid://tog6nmrph15b" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_ui_slider.gd" id="8_orrbg"]
 [ext_resource type="Script" uid="uid://c5emn1tatcw1r" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_ui_toggle.gd" id="9_30wqw"]
-[ext_resource type="Material" uid="uid://do051abwac5bd" path="res://addons/flowerwall_postprocess/shaders/dithering_shader.material" id="26_aii1a"]
-[ext_resource type="Material" uid="uid://bin5pojky5its" path="res://addons/flowerwall_postprocess/shaders/blurx_shader.material" id="27_yx2vx"]
-[ext_resource type="Material" uid="uid://do4cbxjmqyuu7" path="res://addons/flowerwall_postprocess/shaders/crt_shader.material" id="28_aii1a"]
-[ext_resource type="Material" uid="uid://q2dapqb0cfcg" path="res://addons/flowerwall_postprocess/shaders/blury_shader.material" id="28_yx2vx"]
-[ext_resource type="Material" uid="uid://280iywdtwttm" path="res://addons/flowerwall_postprocess/shaders/bloom_shader.material" id="29_aii1a"]
+[ext_resource type="Material" uid="uid://c45ounqnx7c2o" path="res://addons/flowerwall_postprocess/shaders/dithering_shader.material" id="26_aii1a"]
+[ext_resource type="Material" uid="uid://2tsdqpogesqb" path="res://addons/flowerwall_postprocess/shaders/blurx_shader.material" id="27_yx2vx"]
+[ext_resource type="Material" uid="uid://7wl8n2wh5jxt" path="res://addons/flowerwall_postprocess/shaders/crt_shader.material" id="28_aii1a"]
+[ext_resource type="Material" uid="uid://bjln2ovgooo2l" path="res://addons/flowerwall_postprocess/shaders/blury_shader.material" id="28_yx2vx"]
+[ext_resource type="Material" uid="uid://qpvyejb5i2sn" path="res://addons/flowerwall_postprocess/shaders/bloom_shader.material" id="29_aii1a"]
 [ext_resource type="Script" uid="uid://dtpi5lt33t6eg" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_close.gd" id="32_8p6dx"]
 [ext_resource type="Script" uid="uid://ch7evcy0lie0m" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_save.gd" id="32_jahb0"]
 
@@ -60,7 +60,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="preblur_y" type="CanvasLayer" parent="."]
 layer = 100
@@ -113,7 +112,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 color = Color(0.121569, 0.121569, 0.121569, 0.721569)
 
-[node name="Presets" type="OptionButton" parent="UI/FlowerwallCrtConfigUi" node_paths=PackedStringArray("color_compression", "downscale", "preblur_sl", "grain_sl", "scanlines_sl", "curve_sl", "vignette_size_sl", "vignette_smoothness_sl", "wiggle_sl", "chromaberr_sl", "brightness", "bloom_t", "bloom_i", "rgb")]
+[node name="Presets" type="OptionButton" parent="UI/FlowerwallCrtConfigUi" node_paths=PackedStringArray("color_compression", "downscale", "preblur_sl", "grain_sl", "scanlines_size_slider", "scanlines_sl", "curve_sl", "vignette_size_sl", "vignette_smoothness_sl", "wiggle_sl", "chromaberr_sl", "brightness", "bloom_t", "bloom_i", "rgb")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -134,13 +133,14 @@ popup/item_3/text = "CRT TV"
 popup/item_3/id = 3
 popup/item_4/text = "VHS Tape"
 popup/item_4/id = 4
-popup/item_5/text = "Artoria's prefered settings"
+popup/item_5/text = "Artoria's 1440p+ settings"
 popup/item_5/id = 5
 script = ExtResource("2_aii1a")
 color_compression = NodePath("../Options/Color Compression/color_compression_slider")
 downscale = NodePath("../Options/Downscaling/downscale_slider")
 preblur_sl = NodePath("../Options/Pre-Blur Strength/blur_slider")
 grain_sl = NodePath("../Options/Grain Strength/grain_slider")
+scanlines_size_slider = NodePath("../Options/Scalines Size/scanlines_size_slider")
 scanlines_sl = NodePath("../Options/Scalines Opacity/scanlines_opacity_slider")
 curve_sl = NodePath("../Options/Curvature Slider/curvature_slider")
 vignette_size_sl = NodePath("../Options/Vignette Size/vignette_size_slider")
@@ -335,6 +335,26 @@ script = ExtResource("9_30wqw")
 _mat = ExtResource("28_aii1a")
 _var = "shader_parameter/enable_rgb_grid"
 
+[node name="Scalines Size" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options"]
+layout_mode = 2
+
+[node name="Scanlines Size" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Scalines Size"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Scanlines Size"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="scanlines_size_slider" type="HSlider" parent="UI/FlowerwallCrtConfigUi/Options/Scalines Size"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 6.0
+value = 0.45
+script = ExtResource("8_orrbg")
+_mat = ExtResource("28_aii1a")
+_var = "shader_parameter/scanline_thickness"
+
 [node name="Scalines Opacity" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options"]
 layout_mode = 2
 
@@ -498,6 +518,7 @@ bloom_mat = NodePath("../../../post_bloom/bloom")
 [connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Bloom Intensity/bloom_intensity_slider" to="." method="_on_bloom_intensity_slider_value_changed"]
 [connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Chromatic Aberration Strength/chroma_aberr_strength_slider" to="." method="_on_chroma_aberr_strength_slider_value_changed"]
 [connection signal="toggled" from="UI/FlowerwallCrtConfigUi/Options/Enable CRT Grid/RGB_grid_toggle" to="." method="_on_rgb_grid_toggle_toggled"]
+[connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Scalines Size/scanlines_size_slider" to="." method="_on_scanlines_size_slider_value_changed"]
 [connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Scalines Opacity/scanlines_opacity_slider" to="." method="_on_scanlines_opacity_slider_value_changed"]
 [connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Grain Strength/grain_slider" to="." method="_on_grain_slider_value_changed"]
 [connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/VHS Wiggle Strength/VHS_wiggle_strength_slider" to="." method="_on_vhs_wiggle_strength_slider_value_changed"]
