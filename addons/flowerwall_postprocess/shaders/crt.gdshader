@@ -4,11 +4,11 @@ uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_n
 uniform bool enable_grain = true;
 uniform bool enable_curving = false;
 uniform bool enable_scanlines = true;
-uniform bool enable_chromatic_aberration = true;
+uniform bool enable_smearing = true;
 uniform bool enable_rgb_grid = true;
 uniform bool enable_vhs_wiggle = true;
-uniform bool enable_vignette = false;
-uniform float brightness_multiplier:hint_range(1.0,1.2, 0.05) = 1.05;
+//uniform bool enable_vignette = false;
+//uniform float brightness_multiplier:hint_range(1.0,1.2, 0.05) = 1.05;
 
 group_uniforms grain_settings;
 uniform float grain_strength: hint_range(0.0, 1.0, 0.05) = 0.25;
@@ -28,6 +28,9 @@ uniform float scanline_thickness: hint_range(0, 10, 1.0) = 3;
 group_uniforms chromatic_aberration_settings;
 uniform float chromatic_aberration_strength: hint_range(0.0, 10.0, 1.0) = 1.0;
 
+group_uniforms Smear;
+uniform float smear : hint_range(0.0, 1.0) = 0.2;
+const int blur_samples = 6;
 
 group_uniforms vhs_wiggle_settings;
 uniform sampler2D noise_texture: filter_linear_mipmap, repeat_enable;
@@ -54,13 +57,57 @@ float v2random(vec2 uv) {
 	return texture(noise_texture, mod(uv, vec2(1.0))).x;
 }
 
+float onOff(float a, float b, float c, float framecount) {
+    return step(c, sin((framecount * 0.001) + a * cos((framecount * 0.001) * b)));
+}
+
+vec2 Circle(float Start, float Points, float Point) {
+    float Rad = (3.141592 * 2.0 * (1.0 / Points)) * (Point + Start);
+    return vec2(-(.3 + Rad), cos(Rad));
+}
+
+vec3 rgb2yiq(vec3 c) {
+    return vec3(
+        (0.2989 * c.x + 0.5959 * c.y + 0.2115 * c.z),
+        (0.5870 * c.x - 0.2744 * c.y - 0.5229 * c.z),
+        (0.1140 * c.x - 0.3216 * c.y + 0.3114 * c.z)
+    );
+}
+
+vec3 yiq2rgb(vec3 c) {
+    return vec3(
+        (1.0 * c.x + 1.0 * c.y + 1.0 * c.z),
+        (0.956 * c.x - 0.2720 * c.y - 1.1060 * c.z),
+        (0.6210 * c.x - 0.6474 * c.y + 1.7046 * c.z)
+    );
+}
+
+vec3 Blur(vec2 uv, float d, int samples) {
+	vec3 sum = vec3(0.0);
+	float W = 1.0 / float(samples);
+	for (int i = 0; i < samples; ++i)
+	{
+		float t = (sin( 5.0 + uv.y * 5.0)) / 10.0;
+
+		t = 0.0;
+		vec2 PixelOffset = vec2(d + 0.0005 * t, 0);
+        
+		float Start = 2.0 / float(samples);
+		vec2 Scale = 0.66 * 4.0 * 2.0 * PixelOffset.xy;
+        
+		vec3 N = texture(screen_texture, uv + Circle(Start, float(samples), float(i)) * Scale).rgb;
+		sum += N * W;
+    }
+    return sum;
+}
+
 void fragment()
 {
 	vec2 xy = SCREEN_UV;
 
 	if(enable_vhs_wiggle)
 	{
-		xy.x += (v2random(vec2(xy.y / 10.0, TIME / 10.0) / 1.0) - 0.5) * wiggle *0.1;
+		xy.x += (v2random(vec2(xy.y / 10.0, TIME / 100.0) / 1.0) - 0.5) * wiggle *0.1;
 		xy.x += (v2random(vec2(xy.y, TIME * 10.0)) - 0.5) * wiggle * 0.1;
 	}
 
@@ -73,13 +120,33 @@ void fragment()
 	}
 
 	vec4 color = texture(screen_texture, xy);
-
-	if(enable_chromatic_aberration)
+	
+	if (enable_smearing)
 	{
-		float r = texture(screen_texture, xy + vec2(SCREEN_PIXEL_SIZE*vec2(chromatic_aberration_strength, 0.0)), 0.0).r;
-		float g = texture(screen_texture, xy + vec2(SCREEN_PIXEL_SIZE* 0.0), 0.0).g;
-		float b = texture(screen_texture, xy + vec2(SCREEN_PIXEL_SIZE*vec2(-chromatic_aberration_strength, 0.0)), 0.0).b;
-		color.rgb = vec3(r, g, b);
+		//Source: https://godotshaders.com/shader/vhs/
+		//By cyanone.art
+		float s = 0.0001 * 0.0001;
+		float e = min(.30,pow(max(0.0,cos(xy.y*4.0+.3)-.75)*(s+0.5)*1.0,3.0))*25.0;
+		float r = (250.0*(2.0*s));
+
+		float d = 0.051+abs(sin(s/4.0));
+		float c = max(0.0001,.002*d) * smear;
+		vec4 final;
+
+		final.rgb = Blur(xy, c + c * xy.x, blur_samples);
+		float y = rgb2yiq(final.rgb).r;
+
+		xy.x += 0.01 * d;
+		c *= 6.0;
+		final.rgb = Blur(xy, c, blur_samples);
+		float i = rgb2yiq(final.rgb).g;
+
+		xy.x += 0.005 * d;
+		c *= 2.50;
+		final.rgb = Blur(xy, c, blur_samples);
+		float q = rgb2yiq(final.rgb).b;
+		final.rgb = yiq2rgb(vec3(y, i, q)) - pow(s + e * 2.0, 3.0);
+		color.rgb = final.rgb;
 	}
 
 	if(enable_grain)
@@ -87,36 +154,155 @@ void fragment()
 
 	if(enable_rgb_grid)
 	{
-		float r;
-		float g;
-		float b;
-		int rgbIndex = int(FRAGCOORD.x) % 3;
+		//Grille
+		int rgbIndex = int(FRAGCOORD.x) %3;
 		if(rgbIndex == 0)
-			r = 1.;
-		else
-			r = 0.;
-		if(rgbIndex == 1)
-			g = 1.;
-		else
-			g = 0.;
-		if(rgbIndex == 2)
-			b = 1.;
-		else
-			b = 0.;
-		vec3 mask = vec3(r,g,b);
-		color.rgb *= mask;
+		{
+			color.r *= 1.0;
+			color.gb *= 0.7;
+		}
+		else if(rgbIndex == 1)
+		{ 
+			color.g *= 1.0;
+			color.rb *= 0.7;
+		} 
+		else if(rgbIndex == 2)
+		{
+			color.b *= 1.0;
+			color.rg *= 0.7;
+		}
+
+		////Slot 3
+		//int lineIndex = int(FRAGCOORD.y/3.) % 4;
+		////int lineIndex = 0;
+		//
+		//int rgbIndex = int(FRAGCOORD.x + float(lineIndex*2)) %4;
+		//if(rgbIndex == 0)
+		//{
+			//color.r *= 1.0;
+			//color.gb *= 0.7;
+		//}
+		//else if(rgbIndex == 1)
+		//{ 
+			//color.g *= 1.0;
+			//color.rb *= 0.7;
+		//} 
+		//else if(rgbIndex == 2)
+		//{
+			//color.b *= 1.0;
+			//color.rg *= 0.7;
+		//}
+		//else if(rgbIndex == 3)
+		//{
+			//color.rgb *= 0.5;
+		//}
+		
+		////Slot 4
+		//int lineIndex = int(FRAGCOORD.y/4.) % 4;
+		////int lineIndex = 0;
+		//
+		//int rgbIndex = int(FRAGCOORD.x + float(lineIndex*2)) %4;
+		//if(rgbIndex == 0)
+		//{
+			//color.r *= 1.0;
+			//color.gb *= 0.7;
+		//}
+		//else if(rgbIndex == 1)
+		//{ 
+			//color.g *= 1.0;
+			//color.rb *= 0.7;
+		//} 
+		//else if(rgbIndex == 2)
+		//{
+			//color.b *= 1.0;
+			//color.rg *= 0.7;
+		//}
+		//else if(rgbIndex == 3)
+		//{
+			//color.rgb *= 0.5;
+		//}
+		
+		
+		//Dot
+		//int lineIndex = int(FRAGCOORD.y) % 4;
+		//if (lineIndex == 0 || lineIndex == 2)
+		//{
+			//int rgbIndex = int(FRAGCOORD.x + float(lineIndex *3)) %12;
+			//if(rgbIndex == 0 || rgbIndex == 1 || rgbIndex == 2)
+			//{
+			//color.r *= 1.0;
+				//color.gb *= 0.7;
+			//}
+			//else if(rgbIndex == 4 || rgbIndex == 5 || rgbIndex == 6)
+			//{ 
+				//color.g *= 1.0;
+				//color.rb *= 0.7;
+			//} 
+			//else if(rgbIndex == 8 || rgbIndex == 9 || rgbIndex == 10)
+			//{
+				//color.b *= 1.0;
+				//color.rg *= 0.7;
+			//}
+			//else if(rgbIndex == 3 || rgbIndex == 7 || rgbIndex == 11)
+			//{
+				//color.rgb *= 0.5;
+			//}
+		//}
+		//else if (lineIndex == 1 || lineIndex == 3)
+		//{
+			//int rgbIndex = int(FRAGCOORD.x) %12;
+			//if(rgbIndex == 1 || rgbIndex ==  7)
+			//{
+			//color.r *= 1.0;
+				//color.gb *= 0.7;
+			//}
+			//else if(rgbIndex == 5 || rgbIndex ==  11)
+			//{ 
+				//color.g *= 1.0;
+				//color.rb *= 0.7;
+			//} 
+			//else if(rgbIndex == 9 || rgbIndex ==  3)
+			//{
+				//color.b *= 1.0;
+				//color.rg *= 0.7;
+			//}
+			//else
+			//{
+				//color.rgb *= 0.5;
+			//}
+		//}
+		//int rgbIndex = int(FRAGCOORD.x + float(lineIndex)) %2;
+		
 	}
-	color.rgb *= brightness_multiplier;
+	//color.rgb *= brightness_multiplier;
 
 	if(enable_scanlines)
 	{
-		float scanline = mod(float(FRAGCOORD.y), scanlines_interval); // check which pixel we are in a row of X
+		//Grille
+		//float scanline = mod(float(FRAGCOORD.y), 4); // check which pixel we are in a row of X
+		//scanline = 1.0 - (step(scanline_thickness, scanline)); // black if above 1.0 (0.0, 1.0, 2.0)
+		//scanline *= scanline_opacity;
+		//color.rgb *= 1.- scanline;
+
+		//Slot 4
+		//int colIndex = int(FRAGCOORD.x/4.) % 2;
+		//float scanline = mod(float(FRAGCOORD.y), 4); // check which pixel we are in a row of X
+		//scanline = 1.0 - (step(scanline_thickness, scanline)); // black if above 1.0 (0.0, 1.0, 2.0)
+		//scanline *= scanline_opacity;
+		//color.rgb *= 1.- scanline;
+		
+		//Slot 3
+		int colIndex = int(FRAGCOORD.x/4.) % 2;
+		float scanline = mod(float(FRAGCOORD.y), 3); // check which pixel we are in a row of X
 		scanline = 1.0 - (step(scanline_thickness, scanline)); // black if above 1.0 (0.0, 1.0, 2.0)
 		scanline *= scanline_opacity;
 		color.rgb *= 1.- scanline;
+		
+		//Dot
+		//Nothing
 	}
 
-	if(enable_vignette)
+	if(enable_curving)
 	{
 		vec2 uv = SCREEN_UV;
 		uv *=  1.0 - uv.yx;
