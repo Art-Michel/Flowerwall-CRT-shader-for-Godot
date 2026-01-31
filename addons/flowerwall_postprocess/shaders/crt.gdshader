@@ -5,31 +5,24 @@ uniform bool enable_grain = true;
 uniform bool enable_curving = false;
 uniform bool enable_scanlines = true;
 uniform bool enable_smearing = true;
-uniform bool enable_rgb_grid = true;
-uniform bool enable_vhs_wiggle = true;
-//uniform bool enable_vignette = false;
-//uniform float brightness_multiplier:hint_range(1.0,1.2, 0.05) = 1.05;
+uniform bool enable_gridmask = true;
+uniform bool enable_slotmask = true;
+//uniform bool enable_dotmask = true;
+uniform bool enable_wiggle = true;
 
 group_uniforms grain_settings;
 uniform float grain_strength: hint_range(0.0, 1.0, 0.05) = 0.25;
 
 group_uniforms curving_settings;
-uniform float curve_power: hint_range(1.0, 1.05, 0.005) =1.02;
-
-group_uniforms vignette_settings;
-uniform float vignette_size: hint_range(0.1, 10.0, 0.1) = 0.4;
-uniform float vignette_smoothness: hint_range(0.05, 5.0, 0.05) = 0.4;
+uniform float curve_power: hint_range(1.0, 1.1, 0.005) =1.02;
 
 group_uniforms scanlines_settings;
-uniform float scanlines_interval: hint_range(0.0, 20.0, 1.0) = 6.0;
-uniform float scanline_opacity: hint_range(0, 1, 0.05) = 0.45;
-uniform float scanline_thickness: hint_range(0, 10, 1.0) = 3;
+uniform float scanlines_interval: hint_range(0.0, 20.0, 1.0) = 3.0;
+uniform float scanlines_opacity: hint_range(0, 1, 0.05) = 0.45;
+uniform float scanlines_thickness: hint_range(0, 10, 1.0) = 1;
 
-group_uniforms chromatic_aberration_settings;
-uniform float chromatic_aberration_strength: hint_range(0.0, 10.0, 1.0) = 1.0;
-
-group_uniforms Smear;
-uniform float smear : hint_range(0.0, 1.0) = 0.2;
+group_uniforms Smearing;
+uniform float smearing_strength : hint_range(0.0, 1.0) = 0.2;
 const int blur_samples = 6;
 
 group_uniforms vhs_wiggle_settings;
@@ -105,7 +98,7 @@ void fragment()
 {
 	vec2 xy = SCREEN_UV;
 
-	if(enable_vhs_wiggle)
+	if(enable_wiggle)
 	{
 		xy.x += (v2random(vec2(xy.y / 10.0, TIME / 100.0) / 1.0) - 0.5) * wiggle *0.1;
 		xy.x += (v2random(vec2(xy.y, TIME * 10.0)) - 0.5) * wiggle * 0.1;
@@ -130,14 +123,14 @@ void fragment()
 		float r = (250.0*(2.0*s));
 
 		float d = 0.051+abs(sin(s/4.0));
-		float c = max(0.0001,.002*d) * smear;
+		float c = max(0.0001,.002*d) * smearing_strength;
 		vec4 final;
 
 		final.rgb = Blur(xy, c + c * xy.x, blur_samples);
 		float y = rgb2yiq(final.rgb).r;
 
 		xy.x += 0.01 * d;
-		c *= 6.0;
+		c *= 4.0;
 		final.rgb = Blur(xy, c, blur_samples);
 		float i = rgb2yiq(final.rgb).g;
 
@@ -152,9 +145,10 @@ void fragment()
 	if(enable_grain)
 		color.rgb = mix(color.rgb ,vec3(0.0), filmGrainNoise(TIME, SCREEN_UV) * grain_strength);
 
-	if(enable_rgb_grid)
+	if(enable_gridmask)
 	{
-		//Grille
+		int lineIndex = int(FRAGCOORD.y/3.) % 4;
+
 		int rgbIndex = int(FRAGCOORD.x) %3;
 		if(rgbIndex == 0)
 		{
@@ -165,149 +159,71 @@ void fragment()
 		{ 
 			color.g *= 1.0;
 			color.rb *= 0.7;
-		} 
+		}
 		else if(rgbIndex == 2)
 		{
 			color.b *= 1.0;
 			color.rg *= 0.7;
 		}
-
-		////Slot 3
-		//int lineIndex = int(FRAGCOORD.y/3.) % 4;
-		////int lineIndex = 0;
-		//
-		//int rgbIndex = int(FRAGCOORD.x + float(lineIndex*2)) %4;
-		//if(rgbIndex == 0)
-		//{
-			//color.r *= 1.0;
-			//color.gb *= 0.7;
-		//}
-		//else if(rgbIndex == 1)
-		//{ 
-			//color.g *= 1.0;
-			//color.rb *= 0.7;
-		//} 
-		//else if(rgbIndex == 2)
-		//{
-			//color.b *= 1.0;
-			//color.rg *= 0.7;
-		//}
-		//else if(rgbIndex == 3)
-		//{
-			//color.rgb *= 0.5;
-		//}
 		
-		////Slot 4
-		//int lineIndex = int(FRAGCOORD.y/4.) % 4;
-		////int lineIndex = 0;
-		//
-		//int rgbIndex = int(FRAGCOORD.x + float(lineIndex*2)) %4;
-		//if(rgbIndex == 0)
-		//{
-			//color.r *= 1.0;
-			//color.gb *= 0.7;
-		//}
-		//else if(rgbIndex == 1)
-		//{ 
-			//color.g *= 1.0;
-			//color.rb *= 0.7;
-		//} 
-		//else if(rgbIndex == 2)
-		//{
-			//color.b *= 1.0;
-			//color.rg *= 0.7;
-		//}
-		//else if(rgbIndex == 3)
-		//{
-			//color.rgb *= 0.5;
-		//}
-		
-		
-		//Dot
-		//int lineIndex = int(FRAGCOORD.y) % 4;
-		//if (lineIndex == 0 || lineIndex == 2)
-		//{
-			//int rgbIndex = int(FRAGCOORD.x + float(lineIndex *3)) %12;
-			//if(rgbIndex == 0 || rgbIndex == 1 || rgbIndex == 2)
-			//{
-			//color.r *= 1.0;
-				//color.gb *= 0.7;
-			//}
-			//else if(rgbIndex == 4 || rgbIndex == 5 || rgbIndex == 6)
-			//{ 
-				//color.g *= 1.0;
-				//color.rb *= 0.7;
-			//} 
-			//else if(rgbIndex == 8 || rgbIndex == 9 || rgbIndex == 10)
-			//{
-				//color.b *= 1.0;
-				//color.rg *= 0.7;
-			//}
-			//else if(rgbIndex == 3 || rgbIndex == 7 || rgbIndex == 11)
-			//{
-				//color.rgb *= 0.5;
-			//}
-		//}
-		//else if (lineIndex == 1 || lineIndex == 3)
-		//{
-			//int rgbIndex = int(FRAGCOORD.x) %12;
-			//if(rgbIndex == 1 || rgbIndex ==  7)
-			//{
-			//color.r *= 1.0;
-				//color.gb *= 0.7;
-			//}
-			//else if(rgbIndex == 5 || rgbIndex ==  11)
-			//{ 
-				//color.g *= 1.0;
-				//color.rb *= 0.7;
-			//} 
-			//else if(rgbIndex == 9 || rgbIndex ==  3)
-			//{
-				//color.b *= 1.0;
-				//color.rg *= 0.7;
-			//}
-			//else
-			//{
-				//color.rgb *= 0.5;
-			//}
-		//}
-		//int rgbIndex = int(FRAGCOORD.x + float(lineIndex)) %2;
-		
+		if(enable_scanlines)
+		{
+			float scanline = mod(float(FRAGCOORD.y), scanlines_interval); // check which pixel we are in a row of X
+			scanline = 1.0 - (step(scanlines_thickness, scanline)); // black if above 1.0 (0.0, 1.0, 2.0)
+			scanline *= scanlines_opacity;
+			color.rgb *= 1.- scanline;
+		}
 	}
-	//color.rgb *= brightness_multiplier;
 
-	if(enable_scanlines)
+	else if(enable_slotmask)
 	{
-		//Grille
-		//float scanline = mod(float(FRAGCOORD.y), 4); // check which pixel we are in a row of X
-		//scanline = 1.0 - (step(scanline_thickness, scanline)); // black if above 1.0 (0.0, 1.0, 2.0)
-		//scanline *= scanline_opacity;
-		//color.rgb *= 1.- scanline;
+		int lineIndex = int(FRAGCOORD.y/3.) % 4;
+		//int lineIndex = 0;
+		
+		int rgbIndex = int(FRAGCOORD.x + float(lineIndex*2)) %4;
+		if(rgbIndex == 0)
+		{
+			color.r *= 1.0;
+			color.gb *= 0.7;
+		}
+		else if(rgbIndex == 1)
+		{ 
+			color.g *= 1.0;
+			color.rb *= 0.7;
+		}
+		else if(rgbIndex == 2)
+		{
+			color.b *= 1.0;
+			color.rg *= 0.7;
+		}
+		else if(rgbIndex == 3)
+		{
+			color.rgb *= 0.5;
+		}
+		if(enable_scanlines)
+		{
+			int colIndex = int(FRAGCOORD.x/3.) % 2;
+			float scanline = mod(float(FRAGCOORD.y), scanlines_interval); // check which pixel we are in a row of X
+			scanline = 1.0 - (step(scanlines_thickness, scanline)); // black if above 1.0 (0.0, 1.0, 2.0)
+			scanline *= scanlines_opacity;
+			color.rgb *= 1.- scanline;
+		}
+	}
 
-		//Slot 4
-		//int colIndex = int(FRAGCOORD.x/4.) % 2;
-		//float scanline = mod(float(FRAGCOORD.y), 4); // check which pixel we are in a row of X
-		//scanline = 1.0 - (step(scanline_thickness, scanline)); // black if above 1.0 (0.0, 1.0, 2.0)
-		//scanline *= scanline_opacity;
-		//color.rgb *= 1.- scanline;
-		
-		//Slot 3
-		int colIndex = int(FRAGCOORD.x/4.) % 2;
-		float scanline = mod(float(FRAGCOORD.y), 3); // check which pixel we are in a row of X
-		scanline = 1.0 - (step(scanline_thickness, scanline)); // black if above 1.0 (0.0, 1.0, 2.0)
-		scanline *= scanline_opacity;
-		color.rgb *= 1.- scanline;
-		
-		//Dot
-		//Nothing
+	else if(enable_scanlines)
+	{
+			float scanline = mod(float(FRAGCOORD.y), scanlines_interval); // check which pixel we are in a row of X
+			scanline = 1.0 - (step(scanlines_thickness, scanline)); // black if above 1.0 (0.0, 1.0, 2.0)
+			scanline *= scanlines_opacity;
+			color.rgb *= 1.- scanline;
 	}
 
 	if(enable_curving)
 	{
 		vec2 uv = SCREEN_UV;
 		uv *=  1.0 - uv.yx;
-		float vig = uv.x*uv.y / vignette_size * 1000.0;
-		vig = pow(vig, 1.0/vignette_smoothness);
+		float vig = uv.x*uv.y / (curve_power-1.) * 120.0;
+		vig = pow(vig, 1.0);
 		color.rgb -= 1.0-(clamp(vig,0,1));
 	}
 

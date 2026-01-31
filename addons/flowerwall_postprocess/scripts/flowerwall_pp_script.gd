@@ -50,41 +50,35 @@ func should_enable_crt() -> void:
 		CRT_SHADER.set("shader_parameter/enable_grain", true)
 		crt.visible = true
 	else:
-		
 		CRT_SHADER.set("shader_parameter/enable_grain", false)
+
 	if CRT_SHADER.get("shader_parameter/scanline_opacity") > 0.0:
 		CRT_SHADER.set("shader_parameter/enable_scanlines", true)
 		crt.visible = true
 	else:
-		
 		CRT_SHADER.set("shader_parameter/enable_scanlines", false)
-	if CRT_SHADER.get("shader_parameter/vignette_size") > 0.1:
-		CRT_SHADER.set("shader_parameter/enable_vignette", true)
-		crt.visible = true
-	else:
-		
-		CRT_SHADER.set("shader_parameter/enable_vignette", false)
+
 	if CRT_SHADER.get("shader_parameter/wiggle") > 0.0:
 		CRT_SHADER.set("shader_parameter/enable_vhs_wiggle", true)
 		crt.visible = true
 	else:
-		
 		CRT_SHADER.set("shader_parameter/enable_vhs_wiggle", false)
+
 	if CRT_SHADER.get("shader_parameter/curve_power") > 1.0:
 		CRT_SHADER.set("shader_parameter/enable_curving", true)
 		crt.visible = true
 	else:
-		
 		CRT_SHADER.set("shader_parameter/enable_curving", false)
-	if CRT_SHADER.get("shader_parameter/chromatic_aberration_strength") > 0.0:
-		CRT_SHADER.set("shader_parameter/enable_chromatic_aberration", true)
+
+	if CRT_SHADER.get("shader_parameter/smearing_strength") > 0.0:
+		CRT_SHADER.set("shader_parameter/enable_smearing", true)
 		crt.visible = true
 	else:
-		CRT_SHADER.set("shader_parameter/enable_chromatic_aberration", false)
-		
-	if CRT_SHADER.get("shader_parameter/enable_rgb_grid") == true:
+		CRT_SHADER.set("shader_parameter/enable_smearing", false)
+
+	if CRT_SHADER.get("shader_parameter/enable_gridmask") == true:
 		crt.visible = true
-	if CRT_SHADER.get("shader_parameter/brightness_multiplier") > 1.00:
+	if CRT_SHADER.get("shader_parameter/enable_slotmask") == true:
 		crt.visible = true
 
 func should_enable_bloom() -> void:
@@ -127,7 +121,7 @@ func _on_bloom_threshold_slider_value_changed(value: float) -> void:
 
 
 func _on_chroma_aberr_strength_slider_value_changed(value: float) -> void:
-	CRT_SHADER.set("shader_parameter/chromatic_aberration_strength", value)
+	CRT_SHADER.set("shader_parameter/smearing_strength", value)
 	should_enable_crt()
 
 
@@ -137,11 +131,11 @@ func _on_rgb_grid_toggle_toggled(toggled_on: bool) -> void:
 
 
 func _on_scanlines_opacity_slider_value_changed(value: float) -> void:
-	CRT_SHADER.set("shader_parameter/scanline_opacity", value)
+	CRT_SHADER.set("shader_parameter/scanlines_opacity", value)
 	should_enable_crt()
 
 func _on_scanlines_size_slider_value_changed(value: float) -> void:
-	CRT_SHADER.set("shader_parameter/scanline_thickness", value)
+	CRT_SHADER.set("shader_parameter/scanlines_thickness", value)
 	CRT_SHADER.set("shader_parameter/scanlines_interval", value *2)
 	should_enable_crt()
 
