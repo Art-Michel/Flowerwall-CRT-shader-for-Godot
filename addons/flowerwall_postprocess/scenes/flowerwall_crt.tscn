@@ -1,18 +1,13 @@
 [gd_scene format=3 uid="uid://cc1fomjf362h5"]
 
-[ext_resource type="Script" uid="uid://dmk7ono2imeae" path="res://addons/flowerwall_postprocess/scripts/flowerwall_pp_script.gd" id="1_8p6dx"]
+[ext_resource type="Script" uid="uid://dmk7ono2imeae" path="res://addons/flowerwall_postprocess/scripts/flowerwall_crt_script.gd" id="1_8p6dx"]
 [ext_resource type="Script" uid="uid://dxlwhj47enyqa" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_presets.gd" id="2_aii1a"]
 [ext_resource type="Script" uid="uid://tog6nmrph15b" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_ui_slider.gd" id="8_orrbg"]
 [ext_resource type="Script" uid="uid://c5emn1tatcw1r" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_ui_toggle.gd" id="9_30wqw"]
-[ext_resource type="Texture2D" uid="uid://d8wiviwjayhd" path="res://demo_scene/icon.svg" id="12_2g1mu"]
-[ext_resource type="Texture2D" uid="uid://bragkf1p81rrt" path="res://demo_scene/Danganronpa_2_-_Nagito_Komaeda_Sprite_Sidebar.png" id="13_yv1r3"]
-[ext_resource type="Texture2D" uid="uid://btb0qodkkgt0g" path="res://CiHjImvQ2c.png" id="15_bkmk7"]
-[ext_resource type="Texture2D" uid="uid://b6at6362piuyu" path="res://dracula.png" id="16_sa3ql"]
-[ext_resource type="Texture2D" uid="uid://dsfgk5fmeogof" path="res://xZXx6PBmyZ.png" id="17_2pvsh"]
-[ext_resource type="Material" uid="uid://caxmmot1wadyn" path="res://addons/flowerwall_postprocess/shaders/blurx_shader.material" id="27_yx2vx"]
-[ext_resource type="Material" uid="uid://bcmyulwyuoi8m" path="res://addons/flowerwall_postprocess/shaders/crt_shader.material" id="28_aii1a"]
-[ext_resource type="Material" uid="uid://chsyx4u6x5w7c" path="res://addons/flowerwall_postprocess/shaders/blury_shader.material" id="28_yx2vx"]
-[ext_resource type="Material" uid="uid://cagp2o2hxgo78" path="res://addons/flowerwall_postprocess/shaders/bloom_shader.material" id="29_aii1a"]
+[ext_resource type="Material" uid="uid://drqgikceqgt8n" path="res://addons/flowerwall_postprocess/shaders/blurx_shader.material" id="27_yx2vx"]
+[ext_resource type="Material" uid="uid://q488ue3f8isi" path="res://addons/flowerwall_postprocess/shaders/crt_shader.material" id="28_aii1a"]
+[ext_resource type="Material" uid="uid://dk6aae1et3vuv" path="res://addons/flowerwall_postprocess/shaders/blury_shader.material" id="28_yx2vx"]
+[ext_resource type="Material" uid="uid://chh80tifsopng" path="res://addons/flowerwall_postprocess/shaders/bloom_shader.material" id="29_aii1a"]
 [ext_resource type="Script" uid="uid://dtpi5lt33t6eg" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_close.gd" id="32_8p6dx"]
 [ext_resource type="Script" uid="uid://ch7evcy0lie0m" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_save.gd" id="32_jahb0"]
 
@@ -31,7 +26,7 @@ default_font_size = 12
 [sub_resource type="Theme" id="Theme_2pvsh"]
 default_font_size = 12
 
-[node name="flowerwall_pp" type="Control" unique_id=1736349292 node_paths=PackedStringArray("flowerwall_crt_config_ui", "preblur_x", "preblur_y", "post_bloom", "crt")]
+[node name="flowerwall_pp" type="Control" unique_id=1736349292 node_paths=PackedStringArray("flowerwall_crt_config_ui", "preblur_x", "preblur_y", "post_bloom", "crt", "grid_toggle", "slot_toggle")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,6 +41,8 @@ preblur_x = NodePath("preblur_x")
 preblur_y = NodePath("preblur_y")
 post_bloom = NodePath("post_bloom")
 crt = NodePath("CRT")
+grid_toggle = NodePath("UI/FlowerwallCrtConfigUi/Options/Enable Grid Mask/RGB_grid_toggle")
+slot_toggle = NodePath("UI/FlowerwallCrtConfigUi/Options/Enable Slot Mask/RGB_slot_toggle")
 
 [node name="preblur_x" type="CanvasLayer" parent="." unique_id=1725093549]
 layer = 100
@@ -105,12 +102,14 @@ mouse_filter = 2
 layer = 104
 
 [node name="FlowerwallCrtConfigUi" type="ColorRect" parent="UI" unique_id=1349915492]
-offset_right = 480.0
-offset_bottom = 360.0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 478.0
+offset_bottom = 357.0
 size_flags_horizontal = 4
 color = Color(0.121569, 0.121569, 0.121569, 0.721569)
 
-[node name="Presets" type="OptionButton" parent="UI/FlowerwallCrtConfigUi" unique_id=287673459 node_paths=PackedStringArray("color_compression", "downscale", "preblur_sl", "grain_sl", "scanlines_size_slider", "scanlines_sl", "curve_sl", "vignette_size_sl", "vignette_smoothness_sl", "wiggle_sl", "chromaberr_sl", "brightness", "bloom_t", "bloom_i", "rgb")]
+[node name="Presets" type="OptionButton" parent="UI/FlowerwallCrtConfigUi" unique_id=287673459 node_paths=PackedStringArray("preblurx_sl", "preblury_sl", "bloom_t", "bloom_i", "smear_sl", "scanlines_size_sl", "scanlines_op_sl", "scanlines_int_sl", "grain_sl", "wiggle_sl", "curve_sl", "grid", "slot", "mask_strength_sl", "pixel_size_sl")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -122,34 +121,34 @@ offset_bottom = 61.0
 grow_horizontal = 2
 theme = SubResource("Theme_sa3ql")
 item_count = 6
-popup/item_0/text = "Sharp"
+popup/item_0/text = "3x3 Slot (default)"
 popup/item_0/id = 0
-popup/item_1/text = "Crispy"
+popup/item_1/text = "3x3 Grid"
 popup/item_1/id = 1
-popup/item_2/text = "Sharp CRT"
+popup/item_2/text = "4x4 Slot"
 popup/item_2/id = 2
-popup/item_3/text = "CRT TV"
+popup/item_3/text = "4x4 Grid"
 popup/item_3/id = 3
-popup/item_4/text = "VHS Tape"
+popup/item_4/text = "VHS"
 popup/item_4/id = 4
-popup/item_5/text = "Yeah"
+popup/item_5/text = "Disabled"
 popup/item_5/id = 5
 script = ExtResource("2_aii1a")
-color_compression = NodePath("")
-downscale = NodePath("")
-preblur_sl = NodePath("../Options/Pre-Blur Strength X/blurx_slider")
-grain_sl = NodePath("../Options/Grain Strength/grain_slider")
-scanlines_size_slider = NodePath("../Options/Scalines Size/scanlines_size_slider")
-scanlines_sl = NodePath("../Options/Scalines Opacity/scanlines_opacity_slider")
-curve_sl = NodePath("../Options/Curvature Slider/curvature_slider")
-vignette_size_sl = NodePath("")
-vignette_smoothness_sl = NodePath("")
-wiggle_sl = NodePath("../Options/Wiggle Strength/wiggle_strength_slider")
-chromaberr_sl = NodePath("../Options/Smearing Strength/smearing_strength_slider")
-brightness = NodePath("")
+preblurx_sl = NodePath("../Options/Pre-Blur Strength X/blurx_slider")
+preblury_sl = NodePath("../Options/Pre-Blur Strength Y/blury_slider")
 bloom_t = NodePath("../Options/Bloom Threshold/bloom_threshold_slider")
 bloom_i = NodePath("../Options/Bloom Intensity/bloom_intensity_slider")
-rgb = NodePath("../Options/Enable Grid Mask/RGB_grid_toggle")
+smear_sl = NodePath("../Options/Smearing Strength/smearing_strength_slider")
+scanlines_size_sl = NodePath("../Options/Scalines Size/scanlines_size_slider")
+scanlines_op_sl = NodePath("../Options/Scalines Opacity/scanlines_opacity_slider")
+scanlines_int_sl = NodePath("../Options/Scalines Interval/scanlines_interval_slider")
+grain_sl = NodePath("../Options/Grain Strength/grain_slider")
+wiggle_sl = NodePath("../Options/Wiggle Strength/wiggle_strength_slider")
+curve_sl = NodePath("../Options/Curvature Slider/curvature_slider")
+grid = NodePath("../Options/Enable Grid Mask/RGB_grid_toggle")
+slot = NodePath("../Options/Enable Slot Mask/RGB_slot_toggle")
+mask_strength_sl = NodePath("../Options/Mask Strength/mask_strength_slider")
+pixel_size_sl = NodePath("../Options/Pixel Size/pixel_size_slider")
 
 [node name="Preset" type="Label" parent="UI/FlowerwallCrtConfigUi/Presets" unique_id=1300854204]
 layout_mode = 1
@@ -208,7 +207,7 @@ size_flags_vertical = 4
 max_value = 9.0
 value = 6.0
 script = ExtResource("8_orrbg")
-_mat = ExtResource("27_yx2vx")
+_mat = ExtResource("28_yx2vx")
 _var = "shader_parameter/radius"
 
 [node name="Bloom Threshold" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options" unique_id=1952590716]
@@ -267,11 +266,12 @@ custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-max_value = 10.0
-value = 6.0
+max_value = 1.0
+step = 0.1
+value = 1.0
 script = ExtResource("8_orrbg")
 _mat = ExtResource("28_aii1a")
-_var = "shader_parameter/smear"
+_var = "shader_parameter/smearing_strength"
 
 [node name="Scalines Size" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options" unique_id=1547340403]
 layout_mode = 2
@@ -287,10 +287,11 @@ custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-max_value = 6.0
+max_value = 3.0
+value = 1.0
 script = ExtResource("8_orrbg")
 _mat = ExtResource("28_aii1a")
-_var = "shader_parameter/scanline_thickness"
+_var = "shader_parameter/scanlines_thickness"
 
 [node name="Scalines Opacity" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options" unique_id=40091710]
 layout_mode = 2
@@ -311,7 +312,7 @@ step = 0.05
 value = 0.45
 script = ExtResource("8_orrbg")
 _mat = ExtResource("28_aii1a")
-_var = "shader_parameter/scanline_opacity"
+_var = "shader_parameter/scanlines_opacity"
 
 [node name="Scalines Interval" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options" unique_id=1734180494]
 layout_mode = 2
@@ -319,7 +320,7 @@ layout_mode = 2
 [node name="Scanlines Interval" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Scalines Interval" unique_id=615875986]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Scanlines Opacity"
+text = "Scanlines Interval"
 label_settings = SubResource("LabelSettings_4uar2")
 
 [node name="scanlines_interval_slider" type="HSlider" parent="UI/FlowerwallCrtConfigUi/Options/Scalines Interval" unique_id=1806531452]
@@ -327,12 +328,11 @@ custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-max_value = 1.0
-step = 0.05
-value = 0.45
+max_value = 6.0
+value = 3.0
 script = ExtResource("8_orrbg")
 _mat = ExtResource("28_aii1a")
-_var = "shader_parameter/scanline_interval"
+_var = "shader_parameter/scanlines_interval"
 
 [node name="Grain Strength" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options" unique_id=902497970]
 layout_mode = 2
@@ -369,8 +369,8 @@ custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-max_value = 0.5
-step = 0.001
+max_value = 0.1
+step = 0.01
 value = 0.01
 script = ExtResource("8_orrbg")
 _mat = ExtResource("28_aii1a")
@@ -398,32 +398,13 @@ script = ExtResource("8_orrbg")
 _mat = ExtResource("28_aii1a")
 _var = "shader_parameter/curve_power"
 
-[node name="Enable Grid Mask" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options" unique_id=24678318]
-layout_mode = 2
-
-[node name="Enable Grid Mask" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Enable Grid Mask" unique_id=1769974627]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Enable RGB Grid"
-label_settings = SubResource("LabelSettings_4uar2")
-
-[node name="RGB_grid_toggle" type="CheckButton" parent="UI/FlowerwallCrtConfigUi/Options/Enable Grid Mask" unique_id=352465012]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-action_mode = 0
-alignment = 2
-script = ExtResource("9_30wqw")
-_mat = ExtResource("28_aii1a")
-_var = "shader_parameter/enable_rgb_grid"
-
 [node name="Enable Slot Mask" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options" unique_id=1575357293]
 layout_mode = 2
 
 [node name="Enable Slot Mask" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Enable Slot Mask" unique_id=979182062]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Enable RGB Grid"
+text = "Slot Mask"
 label_settings = SubResource("LabelSettings_4uar2")
 
 [node name="RGB_slot_toggle" type="CheckButton" parent="UI/FlowerwallCrtConfigUi/Options/Enable Slot Mask" unique_id=1382248850]
@@ -434,7 +415,68 @@ action_mode = 0
 alignment = 2
 script = ExtResource("9_30wqw")
 _mat = ExtResource("28_aii1a")
-_var = "shader_parameter/enable_rgb_grid"
+_var = "shader_parameter/enable_slotmask"
+
+[node name="Enable Grid Mask" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options" unique_id=24678318]
+layout_mode = 2
+
+[node name="Enable Grid Mask" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Enable Grid Mask" unique_id=1769974627]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Grid Mask"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="RGB_grid_toggle" type="CheckButton" parent="UI/FlowerwallCrtConfigUi/Options/Enable Grid Mask" unique_id=352465012]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+action_mode = 0
+alignment = 2
+script = ExtResource("9_30wqw")
+_mat = ExtResource("28_aii1a")
+_var = "shader_parameter/enable_gridmask"
+
+[node name="Mask Strength" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options" unique_id=922976945]
+layout_mode = 2
+
+[node name="Mask Strength" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Mask Strength" unique_id=875223878]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mask Strength"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="mask_strength_slider" type="HSlider" parent="UI/FlowerwallCrtConfigUi/Options/Mask Strength" unique_id=950158620]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.1
+value = 0.5
+script = ExtResource("8_orrbg")
+_mat = ExtResource("28_aii1a")
+_var = "shader_parameter/mask_strength"
+
+[node name="Pixel Size" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options" unique_id=382898588]
+layout_mode = 2
+
+[node name="Pixel Size" type="Label" parent="UI/FlowerwallCrtConfigUi/Options/Pixel Size" unique_id=1836392259]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pixel Size"
+label_settings = SubResource("LabelSettings_4uar2")
+
+[node name="pixel_size_slider" type="HSlider" parent="UI/FlowerwallCrtConfigUi/Options/Pixel Size" unique_id=2122839453]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 3.0
+max_value = 4.0
+value = 3.0
+script = ExtResource("8_orrbg")
+_mat = ExtResource("28_aii1a")
+_var = "shader_parameter/pixel_size"
 
 [node name="Save" type="Button" parent="UI/FlowerwallCrtConfigUi" unique_id=1996559080 node_paths=PackedStringArray("preblur_x_mat", "preblur_y_mat", "crt_mat", "bloom_mat")]
 layout_mode = 0
@@ -464,40 +506,19 @@ text = "Close
 (F1)"
 script = ExtResource("32_8p6dx")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1139077539]
-visible = false
-position = Vector2(901, 380)
-texture = ExtResource("12_2g1mu")
-
-[node name="Danganronpa2NagitoKomaedaSpriteSidebar" type="Sprite2D" parent="." unique_id=847867123]
-position = Vector2(839, 403)
-scale = Vector2(0.8833097, 0.8833097)
-texture = ExtResource("13_yv1r3")
-
-[node name="CiHjImvQ2c" type="Sprite2D" parent="." unique_id=1031238888]
-position = Vector2(862.00006, 321)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("15_bkmk7")
-
-[node name="Dracula" type="Sprite2D" parent="." unique_id=347943456]
-position = Vector2(1410, 258)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("16_sa3ql")
-
-[node name="XZXx6pBmyZ" type="Sprite2D" parent="." unique_id=1974047140]
-position = Vector2(950, 378)
-texture = ExtResource("17_2pvsh")
-
 [connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
-[connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Pre-Blur Strength X/blurx_slider" to="." method="_on_blur_slider_value_changed"]
-[connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Pre-Blur Strength Y/blury_slider" to="." method="_on_blur_slider_value_changed"]
+[connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Pre-Blur Strength X/blurx_slider" to="." method="_on_blurx_slider_value_changed"]
+[connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Pre-Blur Strength Y/blury_slider" to="." method="_on_blury_slider_value_changed"]
 [connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Bloom Threshold/bloom_threshold_slider" to="." method="_on_bloom_threshold_slider_value_changed"]
 [connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Bloom Intensity/bloom_intensity_slider" to="." method="_on_bloom_intensity_slider_value_changed"]
-[connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Smearing Strength/smearing_strength_slider" to="." method="_on_chroma_aberr_strength_slider_value_changed"]
+[connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Smearing Strength/smearing_strength_slider" to="." method="_on_smearing_strength_slider_value_changed"]
 [connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Scalines Size/scanlines_size_slider" to="." method="_on_scanlines_size_slider_value_changed"]
 [connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Scalines Opacity/scanlines_opacity_slider" to="." method="_on_scanlines_opacity_slider_value_changed"]
+[connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Scalines Interval/scanlines_interval_slider" to="." method="_on_scanlines_interval_slider_value_changed"]
 [connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Grain Strength/grain_slider" to="." method="_on_grain_slider_value_changed"]
-[connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Wiggle Strength/wiggle_strength_slider" to="." method="_on_vhs_wiggle_strength_slider_value_changed"]
+[connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Wiggle Strength/wiggle_strength_slider" to="." method="_on_wiggle_strength_slider_value_changed"]
 [connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Curvature Slider/curvature_slider" to="." method="_on_curvature_slider_value_changed"]
-[connection signal="toggled" from="UI/FlowerwallCrtConfigUi/Options/Enable Grid Mask/RGB_grid_toggle" to="." method="_on_rgb_grid_toggle_toggled"]
-[connection signal="toggled" from="UI/FlowerwallCrtConfigUi/Options/Enable Slot Mask/RGB_slot_toggle" to="." method="_on_rgb_grid_toggle_toggled"]
+[connection signal="toggled" from="UI/FlowerwallCrtConfigUi/Options/Enable Slot Mask/RGB_slot_toggle" to="." method="_on_slotmask_toggle_toggled"]
+[connection signal="toggled" from="UI/FlowerwallCrtConfigUi/Options/Enable Grid Mask/RGB_grid_toggle" to="." method="_on_gridmask_toggle_toggled"]
+[connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Mask Strength/mask_strength_slider" to="." method="_on_mask_strength_slider_value_changed"]
+[connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Pixel Size/pixel_size_slider" to="." method="_on_pixel_size_slider_value_changed"]

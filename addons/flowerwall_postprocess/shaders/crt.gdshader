@@ -1,33 +1,37 @@
 shader_type canvas_item;
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
 
-uniform bool enable_grain = true;
-uniform bool enable_curving = false;
-uniform bool enable_scanlines = true;
-uniform bool enable_smearing = true;
-uniform bool enable_gridmask = true;
+
+group_uniforms grid_settings;
 uniform bool enable_slotmask = true;
+uniform bool enable_gridmask = true;
 //uniform bool enable_dotmask = true;
-uniform bool enable_wiggle = true;
+uniform float mask_strength: hint_range(0, 1, 0.05) = 0.45;
+uniform float pixel_size: hint_range(3, 6, 1) = 3;
 
 group_uniforms grain_settings;
+uniform bool enable_grain = true;
 uniform float grain_strength: hint_range(0.0, 1.0, 0.05) = 0.25;
 
 group_uniforms curving_settings;
+uniform bool enable_curving = false;
 uniform float curve_power: hint_range(1.0, 1.1, 0.005) =1.02;
 
 group_uniforms scanlines_settings;
+uniform bool enable_scanlines = true;
 uniform float scanlines_interval: hint_range(0.0, 20.0, 1.0) = 3.0;
 uniform float scanlines_opacity: hint_range(0, 1, 0.05) = 0.45;
 uniform float scanlines_thickness: hint_range(0, 10, 1.0) = 1;
 
 group_uniforms Smearing;
-uniform float smearing_strength : hint_range(0.0, 1.0) = 0.2;
+uniform bool enable_smearing = true;
+uniform float smearing_strength : hint_range(0.0, 1.0, 0.1) = 0.2;
 const int blur_samples = 6;
 
 group_uniforms vhs_wiggle_settings;
 uniform sampler2D noise_texture: filter_linear_mipmap, repeat_enable;
-uniform float wiggle:hint_range(0.0, 0.05, 0.001) = 0.002;
+uniform bool enable_wiggle = true;
+uniform float wiggle: hint_range(0.0, 0.05, 0.001) = 0.002;
 
 vec2 distort(vec2 p)
 {
@@ -147,28 +151,30 @@ void fragment()
 
 	if(enable_gridmask)
 	{
-		int lineIndex = int(FRAGCOORD.y/3.) % 4;
-
-		int rgbIndex = int(FRAGCOORD.x) %3;
+		int rgbIndex = int(FRAGCOORD.x) %int(pixel_size);
 		if(rgbIndex == 0)
 		{
 			color.r *= 1.0;
-			color.gb *= 0.7;
+			color.gb *= 1.0 - mask_strength;
 		}
 		else if(rgbIndex == 1)
 		{ 
 			color.g *= 1.0;
-			color.rb *= 0.7;
+			color.rb *= 1.0 - mask_strength;
 		}
 		else if(rgbIndex == 2)
 		{
 			color.b *= 1.0;
-			color.rg *= 0.7;
+			color.rg *= 1.0 - mask_strength;
+		}
+		else if(rgbIndex == 3)
+		{
+			color.rgb *= 1.0 - (mask_strength * 1.33);
 		}
 		
 		if(enable_scanlines)
 		{
-			float scanline = mod(float(FRAGCOORD.y), scanlines_interval); // check which pixel we are in a row of X
+			float scanline = mod(float(FRAGCOORD.y), pixel_size); // check which pixel we are in a row of X
 			scanline = 1.0 - (step(scanlines_thickness, scanline)); // black if above 1.0 (0.0, 1.0, 2.0)
 			scanline *= scanlines_opacity;
 			color.rgb *= 1.- scanline;
@@ -177,33 +183,33 @@ void fragment()
 
 	else if(enable_slotmask)
 	{
-		int lineIndex = int(FRAGCOORD.y/3.) % 4;
+		int lineIndex = int(FRAGCOORD.y) / int(pixel_size) % 4;
 		//int lineIndex = 0;
 		
 		int rgbIndex = int(FRAGCOORD.x + float(lineIndex*2)) %4;
 		if(rgbIndex == 0)
 		{
 			color.r *= 1.0;
-			color.gb *= 0.7;
+			color.gb *= 1.0 - mask_strength;
 		}
 		else if(rgbIndex == 1)
 		{ 
 			color.g *= 1.0;
-			color.rb *= 0.7;
+			color.rb *= 1.0 - mask_strength;
 		}
 		else if(rgbIndex == 2)
 		{
 			color.b *= 1.0;
-			color.rg *= 0.7;
+			color.rg *= 1.0 - mask_strength;
 		}
 		else if(rgbIndex == 3)
 		{
-			color.rgb *= 0.5;
+			color.rgb *= 1.0 - (mask_strength * 0.666);
 		}
 		if(enable_scanlines)
 		{
 			int colIndex = int(FRAGCOORD.x/3.) % 2;
-			float scanline = mod(float(FRAGCOORD.y), scanlines_interval); // check which pixel we are in a row of X
+			float scanline = mod(float(FRAGCOORD.y), pixel_size); // check which pixel we are in a row of X
 			scanline = 1.0 - (step(scanlines_thickness, scanline)); // black if above 1.0 (0.0, 1.0, 2.0)
 			scanline *= scanlines_opacity;
 			color.rgb *= 1.- scanline;

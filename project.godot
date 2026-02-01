@@ -18,7 +18,6 @@ config/name="Flowerwall_Shader_demo"
 run/main_scene="res://demo_scene/demo_scene.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/use_filter=false
-config/icon="uid://c3j141ppyjs47"
 
 [display]
 
