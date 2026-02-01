@@ -37,7 +37,3 @@ movie_writer/movie_file="D:/Godot/Godot Projects/Flowerwall-CRT-shader-for-Godot
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/flowerwall_postprocess/plugin.cfg")
-
-[rendering]
-
-textures/canvas_textures/default_texture_filter=0
