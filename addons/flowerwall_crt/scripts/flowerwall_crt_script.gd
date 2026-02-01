@@ -26,7 +26,7 @@ func _ready() -> void:
 #Open Menu
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_F1:
+		if event.pressed and event.keycode == KEY_F1 and OS.is_debug_build():
 			flowerwall_crt_config_ui.visible = !flowerwall_crt_config_ui.visible
 
 func should_enable_blur() -> void:
