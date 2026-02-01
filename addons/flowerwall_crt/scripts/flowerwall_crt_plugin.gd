@@ -2,7 +2,7 @@
 extends EditorPlugin
 
 func _enter_tree():
-	add_autoload_singleton("flowerwall_crt", "res://addons/flowerwall_postprocess/scenes/flowerwall_crt.tscn")
+	add_autoload_singleton("flowerwall_crt", "res://addons/flowerwall_crt/scenes/flowerwall_crt.tscn")
 	print_debug("flowerwall crt shader enabled")
 
 func _exit_tree():

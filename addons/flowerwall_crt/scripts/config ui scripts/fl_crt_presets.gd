@@ -98,7 +98,7 @@ func _on_preset_selected(value:int) -> void:
 			scanlines_op_sl.value = 0.2
 			scanlines_int_sl.value = 6.0
 			curve_sl.value = 1.025
-			wiggle_sl.value = 0.05
+			wiggle_sl.value = 0.1
 			bloom_t.value = 0.05
 			bloom_i.value = 0.6
 			smear_sl.value = 0.6

@@ -9,12 +9,13 @@ extends Control
 
 @export var grid_toggle: CheckButton
 @export var slot_toggle: CheckButton
+@export var scanlines_size_slider: HSlider
+@export var scanlines_interval_slider: HSlider
 
-const BLOOM_SHADER = preload("res://addons/flowerwall_postprocess/shaders/bloom_shader.material")
-const BLURX_SHADER = preload("res://addons/flowerwall_postprocess/shaders/blurx_shader.material")
-const BLURY_SHADER = preload("res://addons/flowerwall_postprocess/shaders/blury_shader.material")
-const CRT_SHADER = preload("res://addons/flowerwall_postprocess/shaders/crt_shader.material")
-const DITHERING_SHADER = preload("res://addons/flowerwall_postprocess/shaders/dithering_shader.material")
+const BLOOM_SHADER = preload("res://addons/flowerwall_crt/shaders/bloom_shader.material")
+const BLURX_SHADER = preload("res://addons/flowerwall_crt/shaders/blurx_shader.material")
+const BLURY_SHADER = preload("res://addons/flowerwall_crt/shaders/blury_shader.material")
+const CRT_SHADER = preload("res://addons/flowerwall_crt/shaders/crt_shader.material")
 
 func _ready() -> void:
 	should_enable_blur()
@@ -128,10 +129,17 @@ func _on_scanlines_opacity_slider_value_changed(value: float) -> void:
 
 func _on_scanlines_size_slider_value_changed(value: float) -> void:
 	CRT_SHADER.set("shader_parameter/scanlines_thickness", value)
+	if scanlines_interval_slider.value <= value:
+		scanlines_interval_slider.set_value_no_signal(value+1)
+		CRT_SHADER.set("shader_parameter/scanlines_interval", value+1)
+	pass
 	should_enable_crt()
 	
 func _on_scanlines_interval_slider_value_changed(value: float) -> void:
 	CRT_SHADER.set("shader_parameter/scanlines_interval", value)
+	if scanlines_size_slider.value >= value:
+		scanlines_size_slider.set_value_no_signal(value-1)
+		CRT_SHADER.set("shader_parameter/scanlines_thickness", value-1)
 	should_enable_crt()
 
 func _on_grain_slider_value_changed(value: float) -> void:

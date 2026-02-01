@@ -31,7 +31,7 @@ const int blur_samples = 6;
 group_uniforms vhs_wiggle_settings;
 uniform sampler2D noise_texture: filter_linear_mipmap, repeat_enable;
 uniform bool enable_wiggle = true;
-uniform float wiggle: hint_range(0.0, 0.05, 0.001) = 0.002;
+uniform float wiggle: hint_range(0.0, 0.2, 0.02) = 0.04;
 
 vec2 distort(vec2 p)
 {
@@ -174,8 +174,8 @@ void fragment()
 		
 		if(enable_scanlines)
 		{
-			float scanline = mod(float(FRAGCOORD.y), pixel_size); // check which pixel we are in a row of X
-			scanline = 1.0 - (step(scanlines_thickness, scanline)); // black if above 1.0 (0.0, 1.0, 2.0)
+			float scanline = mod(float(FRAGCOORD.y), pixel_size);
+			scanline = 1.0 - (step(scanlines_thickness, scanline));
 			scanline *= scanlines_opacity;
 			color.rgb *= 1.- scanline;
 		}
@@ -209,8 +209,8 @@ void fragment()
 		if(enable_scanlines)
 		{
 			int colIndex = int(FRAGCOORD.x/3.) % 2;
-			float scanline = mod(float(FRAGCOORD.y), pixel_size); // check which pixel we are in a row of X
-			scanline = 1.0 - (step(scanlines_thickness, scanline)); // black if above 1.0 (0.0, 1.0, 2.0)
+			float scanline = mod(float(FRAGCOORD.y), pixel_size);
+			scanline = 1.0 - (step(scanlines_thickness, scanline));
 			scanline *= scanlines_opacity;
 			color.rgb *= 1.- scanline;
 		}

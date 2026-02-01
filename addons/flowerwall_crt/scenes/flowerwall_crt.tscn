@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://cc1fomjf362h5"]
 
-[ext_resource type="Script" uid="uid://dmk7ono2imeae" path="res://addons/flowerwall_postprocess/scripts/flowerwall_crt_script.gd" id="1_8p6dx"]
-[ext_resource type="Script" uid="uid://dxlwhj47enyqa" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_presets.gd" id="2_aii1a"]
-[ext_resource type="Script" uid="uid://tog6nmrph15b" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_ui_slider.gd" id="8_orrbg"]
-[ext_resource type="Script" uid="uid://c5emn1tatcw1r" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_ui_toggle.gd" id="9_30wqw"]
-[ext_resource type="Material" path="res://addons/flowerwall_postprocess/shaders/blurx_shader.material" id="27_yx2vx"]
-[ext_resource type="Material" path="res://addons/flowerwall_postprocess/shaders/crt_shader.material" id="28_aii1a"]
-[ext_resource type="Material" path="res://addons/flowerwall_postprocess/shaders/blury_shader.material" id="28_yx2vx"]
-[ext_resource type="Material" path="res://addons/flowerwall_postprocess/shaders/bloom_shader.material" id="29_aii1a"]
-[ext_resource type="Script" uid="uid://dtpi5lt33t6eg" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_close.gd" id="32_8p6dx"]
-[ext_resource type="Script" uid="uid://ch7evcy0lie0m" path="res://addons/flowerwall_postprocess/scripts/config ui scripts/fl_pp_save.gd" id="32_jahb0"]
+[ext_resource type="Script" uid="uid://dmk7ono2imeae" path="res://addons/flowerwall_crt/scripts/flowerwall_crt_script.gd" id="1_8p6dx"]
+[ext_resource type="Script" uid="uid://dxlwhj47enyqa" path="res://addons/flowerwall_crt/scripts/config ui scripts/fl_crt_presets.gd" id="2_aii1a"]
+[ext_resource type="Material" uid="uid://b80cmvdoh08jp" path="res://addons/flowerwall_crt/shaders/blurx_shader.material" id="2_vteqg"]
+[ext_resource type="Script" uid="uid://tog6nmrph15b" path="res://addons/flowerwall_crt/scripts/config ui scripts/fl_crt_ui_slider.gd" id="8_orrbg"]
+[ext_resource type="Script" uid="uid://c5emn1tatcw1r" path="res://addons/flowerwall_crt/scripts/config ui scripts/fl_crt_ui_toggle.gd" id="9_30wqw"]
+[ext_resource type="Material" uid="uid://drh0of5r5qjhw" path="res://addons/flowerwall_crt/shaders/crt_shader.material" id="28_aii1a"]
+[ext_resource type="Material" uid="uid://wbm7ex8ehhfq" path="res://addons/flowerwall_crt/shaders/blury_shader.material" id="28_yx2vx"]
+[ext_resource type="Material" uid="uid://dc5x3f3abi1em" path="res://addons/flowerwall_crt/shaders/bloom_shader.material" id="29_aii1a"]
+[ext_resource type="Script" uid="uid://dtpi5lt33t6eg" path="res://addons/flowerwall_crt/scripts/config ui scripts/fl_crt_close.gd" id="32_8p6dx"]
+[ext_resource type="Script" uid="uid://ch7evcy0lie0m" path="res://addons/flowerwall_crt/scripts/config ui scripts/fl_crt_save.gd" id="32_jahb0"]
 
 [sub_resource type="Theme" id="Theme_sa3ql"]
 default_font_size = 12
@@ -26,7 +26,7 @@ default_font_size = 12
 [sub_resource type="Theme" id="Theme_2pvsh"]
 default_font_size = 12
 
-[node name="flowerwall_pp" type="Control" unique_id=1736349292 node_paths=PackedStringArray("flowerwall_crt_config_ui", "preblur_x", "preblur_y", "post_bloom", "crt", "grid_toggle", "slot_toggle")]
+[node name="flowerwall_pp" type="Control" unique_id=1736349292 node_paths=PackedStringArray("flowerwall_crt_config_ui", "preblur_x", "preblur_y", "post_bloom", "crt", "grid_toggle", "slot_toggle", "scanlines_size_slider", "scanlines_interval_slider")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -43,12 +43,14 @@ post_bloom = NodePath("post_bloom")
 crt = NodePath("CRT")
 grid_toggle = NodePath("UI/FlowerwallCrtConfigUi/Options/Enable Grid Mask/RGB_grid_toggle")
 slot_toggle = NodePath("UI/FlowerwallCrtConfigUi/Options/Enable Slot Mask/RGB_slot_toggle")
+scanlines_size_slider = NodePath("UI/FlowerwallCrtConfigUi/Options/Scalines Size/scanlines_size_slider")
+scanlines_interval_slider = NodePath("UI/FlowerwallCrtConfigUi/Options/Scalines Interval/scanlines_interval_slider")
 
 [node name="preblur_x" type="CanvasLayer" parent="." unique_id=1725093549]
 layer = 100
 
 [node name="x_blur" type="ColorRect" parent="preblur_x" unique_id=1754651421]
-material = ExtResource("27_yx2vx")
+material = ExtResource("2_vteqg")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -187,7 +189,7 @@ size_flags_vertical = 4
 max_value = 9.0
 value = 6.0
 script = ExtResource("8_orrbg")
-_mat = ExtResource("27_yx2vx")
+_mat = ExtResource("2_vteqg")
 _var = "shader_parameter/radius"
 
 [node name="Pre-Blur Strength Y" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options" unique_id=1728846635]
@@ -287,7 +289,8 @@ custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-max_value = 3.0
+min_value = 1.0
+max_value = 12.0
 value = 1.0
 script = ExtResource("8_orrbg")
 _mat = ExtResource("28_aii1a")
@@ -328,7 +331,8 @@ custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-max_value = 6.0
+min_value = 2.0
+max_value = 12.0
 value = 3.0
 script = ExtResource("8_orrbg")
 _mat = ExtResource("28_aii1a")
@@ -369,9 +373,9 @@ custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-max_value = 0.1
-step = 0.01
-value = 0.01
+max_value = 0.2
+step = 0.02
+value = 0.04
 script = ExtResource("8_orrbg")
 _mat = ExtResource("28_aii1a")
 _var = "shader_parameter/wiggle"
@@ -506,7 +510,6 @@ text = "Close
 (F1)"
 script = ExtResource("32_8p6dx")
 
-[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]
 [connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Pre-Blur Strength X/blurx_slider" to="." method="_on_blurx_slider_value_changed"]
 [connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Pre-Blur Strength Y/blury_slider" to="." method="_on_blury_slider_value_changed"]
 [connection signal="value_changed" from="UI/FlowerwallCrtConfigUi/Options/Bloom Threshold/bloom_threshold_slider" to="." method="_on_bloom_threshold_slider_value_changed"]
