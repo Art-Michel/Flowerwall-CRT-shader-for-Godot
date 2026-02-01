@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dmk7ono2imeae" path="res://addons/flowerwall_crt/scripts/flowerwall_crt_script.gd" id="1_8p6dx"]
 [ext_resource type="Script" uid="uid://dxlwhj47enyqa" path="res://addons/flowerwall_crt/scripts/config ui scripts/fl_crt_presets.gd" id="2_aii1a"]
-[ext_resource type="Material" uid="uid://b80cmvdoh08jp" path="res://addons/flowerwall_crt/shaders/blurx_shader.material" id="2_vteqg"]
+[ext_resource type="Material" uid="uid://dlpxyxib04age" path="res://addons/flowerwall_crt/shaders/blurx_shader.material" id="2_vteqg"]
 [ext_resource type="Script" uid="uid://tog6nmrph15b" path="res://addons/flowerwall_crt/scripts/config ui scripts/fl_crt_ui_slider.gd" id="8_orrbg"]
 [ext_resource type="Script" uid="uid://c5emn1tatcw1r" path="res://addons/flowerwall_crt/scripts/config ui scripts/fl_crt_ui_toggle.gd" id="9_30wqw"]
-[ext_resource type="Material" uid="uid://drh0of5r5qjhw" path="res://addons/flowerwall_crt/shaders/crt_shader.material" id="28_aii1a"]
-[ext_resource type="Material" uid="uid://wbm7ex8ehhfq" path="res://addons/flowerwall_crt/shaders/blury_shader.material" id="28_yx2vx"]
-[ext_resource type="Material" uid="uid://dc5x3f3abi1em" path="res://addons/flowerwall_crt/shaders/bloom_shader.material" id="29_aii1a"]
+[ext_resource type="Material" uid="uid://cyel5f1gad7ru" path="res://addons/flowerwall_crt/shaders/crt_shader.material" id="28_aii1a"]
+[ext_resource type="Material" uid="uid://cjfij8mbfuxvc" path="res://addons/flowerwall_crt/shaders/blury_shader.material" id="28_yx2vx"]
+[ext_resource type="Material" uid="uid://cmatshkkajove" path="res://addons/flowerwall_crt/shaders/bloom_shader.material" id="29_aii1a"]
 [ext_resource type="Script" uid="uid://dtpi5lt33t6eg" path="res://addons/flowerwall_crt/scripts/config ui scripts/fl_crt_close.gd" id="32_8p6dx"]
 [ext_resource type="Script" uid="uid://ch7evcy0lie0m" path="res://addons/flowerwall_crt/scripts/config ui scripts/fl_crt_save.gd" id="32_jahb0"]
 
@@ -35,6 +35,7 @@ offset_left = 1.0
 offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_8p6dx")
 flowerwall_crt_config_ui = NodePath("UI")
 preblur_x = NodePath("preblur_x")
