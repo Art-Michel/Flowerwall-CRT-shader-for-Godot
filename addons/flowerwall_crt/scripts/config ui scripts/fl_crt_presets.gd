@@ -30,7 +30,7 @@ func _on_preset_selected(value:int) -> void:
 			scanlines_op_sl.value = 0.25
 			scanlines_int_sl.value = 3.0
 			curve_sl.value = 1.0
-			wiggle_sl.value = 0.01
+			wiggle_sl.value = 0.00
 			bloom_t.value = 0.05
 			bloom_i.value = 0.7
 			smear_sl.value = 0.2
@@ -47,7 +47,7 @@ func _on_preset_selected(value:int) -> void:
 			scanlines_op_sl.value = 0.25
 			scanlines_int_sl.value = 3.0
 			curve_sl.value = 1.0
-			wiggle_sl.value = 0.01
+			wiggle_sl.value = 0.00
 			bloom_t.value = 0.05
 			bloom_i.value = 0.7
 			smear_sl.value = 0.2
@@ -64,7 +64,7 @@ func _on_preset_selected(value:int) -> void:
 			scanlines_op_sl.value = 0.20
 			scanlines_int_sl.value = 3.0
 			curve_sl.value = 1.0
-			wiggle_sl.value = 0.01
+			wiggle_sl.value = 0.00
 			bloom_t.value = 0.05
 			bloom_i.value = 0.7
 			smear_sl.value = 0.3
@@ -81,7 +81,7 @@ func _on_preset_selected(value:int) -> void:
 			scanlines_op_sl.value = 0.20
 			scanlines_int_sl.value = 3.0
 			curve_sl.value = 1.0
-			wiggle_sl.value = 0.01
+			wiggle_sl.value = 0.00
 			bloom_t.value = 0.05
 			bloom_i.value = 0.7
 			smear_sl.value = 0.3
