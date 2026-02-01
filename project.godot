@@ -19,12 +19,25 @@ run/main_scene="res://demo_scene/demo_scene.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/use_filter=false
 
+[autoload]
+
+flowerwall_crt="*uid://cc1fomjf362h5"
+
 [display]
 
 window/size/viewport_width=960
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_height"
 
 [editor]
 
 movie_writer/movie_file="D:/Godot/Godot Projects/Flowerwall-CRT-shader-for-Godot/movie.avi"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/flowerwall_postprocess/plugin.cfg")
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
