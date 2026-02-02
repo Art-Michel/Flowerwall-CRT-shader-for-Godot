@@ -11,6 +11,7 @@ extends Control
 @export var slot_toggle: CheckButton
 @export var scanlines_size_slider: HSlider
 @export var scanlines_interval_slider: HSlider
+var is_enabled: float = true
 
 const BLOOM_SHADER = preload("res://addons/flowerwall_crt/shaders/bloom_shader.material")
 const BLURX_SHADER = preload("res://addons/flowerwall_crt/shaders/blurx_shader.material")
@@ -23,11 +24,25 @@ func _ready() -> void:
 	should_enable_bloom()
 	flowerwall_crt_config_ui.visible = false
 
-#Open Menu
+
+#Menu
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_F1 and OS.is_debug_build():
+		if event.pressed and event.keycode == KEY_F1 and is_enabled and OS.is_debug_build():
 			flowerwall_crt_config_ui.visible = !flowerwall_crt_config_ui.visible
+		if event.pressed and event.keycode == KEY_F2 and OS.is_debug_build():
+			enable_shader()
+
+func enable_shader() -> void:
+	if (is_enabled):
+		is_enabled = false
+		for n in get_children():
+			n.visible = false
+	else:
+		is_enabled = true
+		should_enable_blur()
+		should_enable_crt()
+		should_enable_bloom()
 
 func should_enable_blur() -> void:
 	if BLURX_SHADER.get("shader_parameter/radius") > 0.0:

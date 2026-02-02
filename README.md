@@ -6,9 +6,10 @@
 
 ## Usage
 - Extract the zip files into your addons folder
-- Enable the plugin in Project Settings/Plugins
-- Run any scene. F1 to configure.
+- Enable the plugin in Project Settings -> Plugins
+- Run any scene. At runtime, press F1 to configure.
 - It will display on top of everything. if you want a canvas to not be affected by the post process, set its layer above 104.
+- To disable everything at runtime, press F2. (if you want to modify these behaviours, inside addons/flowerwall_crt/scripts/flowerwall_crt_plugin are all the functions you need)
 - You need (!) the stretch mode to be canvas item in order for the shader to work properly at any resolution
 <img width="896" height="277" alt="settings" src="https://github.com/user-attachments/assets/0f9a7a0a-0e38-4a06-a8d8-85a49242ec4d" />
 
