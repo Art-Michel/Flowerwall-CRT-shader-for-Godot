@@ -23,8 +23,8 @@ func _ready() -> void:
 func _on_preset_selected(value:int) -> void:
 	match value:
 		0: # Subtle Slot
-			preblurx_sl.value = 2.0
-			preblury_sl.value = 0.0
+			preblurx_sl.value = 4.0
+			preblury_sl.value = 2.0
 			grain_sl.value = 0.05
 			scanlines_size_sl.value = 1.0
 			scanlines_op_sl.value = 0.25
@@ -40,8 +40,8 @@ func _on_preset_selected(value:int) -> void:
 			pixel_size_sl.value = 3.0
 	
 		1: # Subtle Grid
-			preblurx_sl.value = 2.0
-			preblury_sl.value = 0.0
+			preblurx_sl.value = 4.0
+			preblury_sl.value = 2.0
 			grain_sl.value = 0.05
 			scanlines_size_sl.value = 1.0
 			scanlines_op_sl.value = 0.25
@@ -57,8 +57,8 @@ func _on_preset_selected(value:int) -> void:
 			pixel_size_sl.value = 3.0
 	
 		2: # Medium slot
-			preblurx_sl.value = 3.0
-			preblury_sl.value = 0.0
+			preblurx_sl.value = 4.0
+			preblury_sl.value = 2.0
 			grain_sl.value = 0.05
 			scanlines_size_sl.value = 2.0
 			scanlines_op_sl.value = 0.20
@@ -74,8 +74,8 @@ func _on_preset_selected(value:int) -> void:
 			pixel_size_sl.value = 4.0
 	
 		3: # Medium grid
-			preblurx_sl.value = 3.0
-			preblury_sl.value = 0.0
+			preblurx_sl.value = 4.0
+			preblury_sl.value = 2.0
 			grain_sl.value = 0.05
 			scanlines_size_sl.value = 2.0
 			scanlines_op_sl.value = 0.20
@@ -98,7 +98,7 @@ func _on_preset_selected(value:int) -> void:
 			scanlines_op_sl.value = 0.2
 			scanlines_int_sl.value = 6.0
 			curve_sl.value = 1.025
-			wiggle_sl.value = 0.1
+			wiggle_sl.value = 0.05
 			bloom_t.value = 0.05
 			bloom_i.value = 0.6
 			smear_sl.value = 0.6
