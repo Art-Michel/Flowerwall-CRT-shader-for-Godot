@@ -116,10 +116,12 @@ transform = Transform3D(1, 0, 0, 0, 0.730937, -0.682445, 0, 0.682445, 0.730937, 
 light_color = Color(0.885932, 0.799963, 0.833785, 1)
 
 [node name="Icon2" type="Sprite2D" parent="." unique_id=1000545440]
+visible = false
 position = Vector2(917, 863)
 texture = ExtResource("1_ovq1f")
 
 [node name="Icon3" type="Sprite2D" parent="." unique_id=1495904289]
+visible = false
 position = Vector2(1146, 826)
 scale = Vector2(1.72599, 1.72599)
 texture = ExtResource("1_ovq1f")

@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Flowerwall_Shader_demo"
 run/main_scene="res://demo_scene/demo_scene.tscn"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/use_filter=false
 
 [autoload]
@@ -37,3 +37,7 @@ movie_writer/movie_file="D:/Godot/Godot Projects/Flowerwall-CRT-shader-for-Godot
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/flowerwall_crt/plugin.cfg")
+
+[rendering]
+
+scaling_3d/scale=0.25

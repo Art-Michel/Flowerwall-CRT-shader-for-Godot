@@ -179,3 +179,10 @@ func _on_pixel_size_slider_value_changed(value: float) -> void:
 	CRT_SHADER.set("shader_parameter/pixel_size", value)
 	should_enable_crt()
 #endregion
+
+func _on_downscaling_slider_value_changed(value: float) -> void:
+	#print_debug(get_viewport().get_window().size.y)
+	get_viewport().scaling_3d_scale = 1.0 / get_viewport().get_window().size.y * value
+	print_debug(1.0 / get_viewport().get_window().size.y * value)
+	#get_viewport().scaling_3d_scale = value
+	get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_NEAREST
