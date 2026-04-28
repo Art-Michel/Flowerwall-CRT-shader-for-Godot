@@ -25,8 +25,9 @@ flowerwall_crt="*uid://cc1fomjf362h5"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=960
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/initial_position_type=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
 
@@ -40,4 +41,7 @@ enabled=PackedStringArray("res://addons/flowerwall_crt/plugin.cfg")
 
 [rendering]
 
-scaling_3d/scale=0.25
+scaling_3d/mode=5
+scaling_3d/mode.ios=5
+scaling_3d/mode.macos=5
+scaling_3d/scale=0.33333334

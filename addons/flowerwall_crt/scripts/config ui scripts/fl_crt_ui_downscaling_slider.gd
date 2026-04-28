@@ -1,4 +1,4 @@
 extends HSlider
 
 func _ready() -> void:
-	value = ProjectSettings.get_setting("rendering/scaling_3d/scale")
+	value = 1/ get_viewport().scaling_3d_scale

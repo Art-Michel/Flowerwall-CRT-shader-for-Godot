@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dmk7ono2imeae" path="res://addons/flowerwall_crt/scripts/flowerwall_crt_script.gd" id="1_8p6dx"]
 [ext_resource type="Script" uid="uid://dxlwhj47enyqa" path="res://addons/flowerwall_crt/scripts/config ui scripts/fl_crt_presets.gd" id="2_aii1a"]
-[ext_resource type="Material" uid="uid://cs8k6uxhq8whe" path="res://addons/flowerwall_crt/shaders/blurx_shader.material" id="2_vteqg"]
+[ext_resource type="Material" uid="uid://c1toevg5y242j" path="res://addons/flowerwall_crt/shaders/blurx_shader.material" id="2_vteqg"]
 [ext_resource type="Script" uid="uid://dao04qwl3ofs8" path="res://addons/flowerwall_crt/scripts/config ui scripts/fl_crt_ui_downscaling_slider.gd" id="7_mw406"]
 [ext_resource type="Script" uid="uid://tog6nmrph15b" path="res://addons/flowerwall_crt/scripts/config ui scripts/fl_crt_ui_slider.gd" id="8_orrbg"]
 [ext_resource type="Script" uid="uid://c5emn1tatcw1r" path="res://addons/flowerwall_crt/scripts/config ui scripts/fl_crt_ui_toggle.gd" id="9_30wqw"]
-[ext_resource type="Material" uid="uid://ofd6cnutcfl0" path="res://addons/flowerwall_crt/shaders/crt_shader.material" id="28_aii1a"]
-[ext_resource type="Material" uid="uid://bqbp7mvd3wi1g" path="res://addons/flowerwall_crt/shaders/blury_shader.material" id="28_yx2vx"]
-[ext_resource type="Material" uid="uid://b8r7y20u22vou" path="res://addons/flowerwall_crt/shaders/bloom_shader.material" id="29_aii1a"]
+[ext_resource type="Material" uid="uid://v5i5r4fwife6" path="res://addons/flowerwall_crt/shaders/crt_shader.material" id="28_aii1a"]
+[ext_resource type="Material" uid="uid://xyjdrg34li7v" path="res://addons/flowerwall_crt/shaders/blury_shader.material" id="28_yx2vx"]
+[ext_resource type="Material" uid="uid://ddhka73ww8rn0" path="res://addons/flowerwall_crt/shaders/bloom_shader.material" id="29_aii1a"]
 [ext_resource type="Script" uid="uid://dtpi5lt33t6eg" path="res://addons/flowerwall_crt/scripts/config ui scripts/fl_crt_close.gd" id="32_8p6dx"]
 [ext_resource type="Script" uid="uid://ch7evcy0lie0m" path="res://addons/flowerwall_crt/scripts/config ui scripts/fl_crt_save.gd" id="32_jahb0"]
 
@@ -113,7 +113,7 @@ offset_bottom = 357.0
 size_flags_horizontal = 4
 color = Color(0.121569, 0.121569, 0.121569, 0.721569)
 
-[node name="Presets" type="OptionButton" parent="UI/FlowerwallCrtConfigUi" unique_id=287673459 node_paths=PackedStringArray("preblurx_sl", "preblury_sl", "bloom_t", "bloom_i", "smear_sl", "scanlines_size_sl", "scanlines_op_sl", "scanlines_int_sl", "grain_sl", "wiggle_sl", "curve_sl", "grid", "slot", "mask_strength_sl", "pixel_size_sl")]
+[node name="Presets" type="OptionButton" parent="UI/FlowerwallCrtConfigUi" unique_id=287673459 node_paths=PackedStringArray("downscaling_sl", "preblurx_sl", "preblury_sl", "bloom_t", "bloom_i", "smear_sl", "scanlines_size_sl", "scanlines_op_sl", "scanlines_int_sl", "grain_sl", "wiggle_sl", "curve_sl", "grid", "slot", "mask_strength_sl", "pixel_size_sl")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -138,6 +138,7 @@ popup/item_4/id = 4
 popup/item_5/text = "Disabled"
 popup/item_5/id = 5
 script = ExtResource("2_aii1a")
+downscaling_sl = NodePath("../Options/Downscaling/downscaling_slider")
 preblurx_sl = NodePath("../Options/Pre-Blur Strength X/blurx_slider")
 preblury_sl = NodePath("../Options/Pre-Blur Strength Y/blury_slider")
 bloom_t = NodePath("../Options/Bloom Threshold/bloom_threshold_slider")
@@ -188,10 +189,10 @@ custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
-min_value = 240.0
-max_value = 1080.0
-step = 240.0
-value = 240.0
+min_value = 1.0
+max_value = 12.0
+value = 1.0
+rounded = true
 script = ExtResource("7_mw406")
 
 [node name="Pre-Blur Strength X" type="HBoxContainer" parent="UI/FlowerwallCrtConfigUi/Options" unique_id=891422699]

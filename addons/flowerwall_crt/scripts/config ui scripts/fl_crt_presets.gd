@@ -1,5 +1,6 @@
 extends OptionButton
 
+@export var downscaling_sl: HSlider
 @export var preblurx_sl: HSlider
 @export var preblury_sl: HSlider
 @export var bloom_t: HSlider
@@ -23,6 +24,7 @@ func _ready() -> void:
 func _on_preset_selected(value:int) -> void:
 	match value:
 		0: # Subtle Slot
+			downscaling_sl.value = 3.0
 			preblurx_sl.value = 4.0
 			preblury_sl.value = 2.0
 			grain_sl.value = 0.05
@@ -40,6 +42,7 @@ func _on_preset_selected(value:int) -> void:
 			pixel_size_sl.value = 3.0
 	
 		1: # Subtle Grid
+			downscaling_sl.value = 3.0
 			preblurx_sl.value = 4.0
 			preblury_sl.value = 2.0
 			grain_sl.value = 0.05
@@ -57,6 +60,7 @@ func _on_preset_selected(value:int) -> void:
 			pixel_size_sl.value = 3.0
 	
 		2: # Medium slot
+			downscaling_sl.value = 4.0
 			preblurx_sl.value = 4.0
 			preblury_sl.value = 2.0
 			grain_sl.value = 0.05
@@ -74,6 +78,7 @@ func _on_preset_selected(value:int) -> void:
 			pixel_size_sl.value = 4.0
 	
 		3: # Medium grid
+			downscaling_sl.value = 4.0
 			preblurx_sl.value = 4.0
 			preblury_sl.value = 2.0
 			grain_sl.value = 0.05
@@ -91,6 +96,7 @@ func _on_preset_selected(value:int) -> void:
 			pixel_size_sl.value = 4.0
 	
 		4: # VHS
+			downscaling_sl.value = 2.0
 			preblurx_sl.value = 4.0
 			preblury_sl.value = 2.0
 			grain_sl.value = 0.35
@@ -108,6 +114,7 @@ func _on_preset_selected(value:int) -> void:
 			pixel_size_sl.value = 3.0
 	
 		5: # Disabled
+			downscaling_sl.value = 1.0
 			preblurx_sl.value = 0.0
 			preblury_sl.value = 0.0
 			grain_sl.value = 0.0

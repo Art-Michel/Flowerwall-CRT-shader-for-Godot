@@ -13,6 +13,8 @@ extends Control
 @export var scanlines_interval_slider: HSlider
 var is_enabled: float = true
 
+var current_scale: float = 1.0
+
 const BLOOM_SHADER = preload("res://addons/flowerwall_crt/shaders/bloom_shader.material")
 const BLURX_SHADER = preload("res://addons/flowerwall_crt/shaders/blurx_shader.material")
 const BLURY_SHADER = preload("res://addons/flowerwall_crt/shaders/blury_shader.material")
@@ -23,7 +25,11 @@ func _ready() -> void:
 	should_enable_crt()
 	should_enable_bloom()
 	flowerwall_crt_config_ui.visible = false
-
+	current_scale = get_viewport().scaling_3d_scale
+	if is_enabled:
+		get_viewport().scaling_3d_scale = current_scale
+	else:
+		get_viewport().scaling_3d_scale = 1.0
 
 #Menu
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -36,10 +42,13 @@ func _unhandled_key_input(event: InputEvent) -> void:
 func enable_shader() -> void:
 	if (is_enabled):
 		is_enabled = false
+		current_scale = get_viewport().scaling_3d_scale
+		get_viewport().scaling_3d_scale = 1.0
 		for n in get_children():
 			n.visible = false
 	else:
 		is_enabled = true
+		get_viewport().scaling_3d_scale = current_scale
 		should_enable_blur()
 		should_enable_crt()
 		should_enable_bloom()
@@ -181,8 +190,10 @@ func _on_pixel_size_slider_value_changed(value: float) -> void:
 #endregion
 
 func _on_downscaling_slider_value_changed(value: float) -> void:
+	var scale: float = 1
+	current_scale = 1/value
+	get_viewport().scaling_3d_scale = 1/value
+	#get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_NEAREST
 	#print_debug(get_viewport().get_window().size.y)
-	get_viewport().scaling_3d_scale = 1.0 / get_viewport().get_window().size.y * value
-	print_debug(1.0 / get_viewport().get_window().size.y * value)
-	#get_viewport().scaling_3d_scale = value
-	get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_NEAREST
+	#get_viewport().scaling_3d_scale = 1.0 / get_viewport().get_window().size.y * value
+	#print_debug(1.0 / get_viewport().get_window().size.y * value)
